@@ -1,14 +1,14 @@
-# Repositories
-Manager for your apt repositories
+# PHP Tester
+Test your PHP code easily
  
 <p align="center"> 
     <img  
-    src="https://raw.githubusercontent.com/bartzaalberg/repositories-manager/master/screenshot.png" /> 
-</p> 
+    src="https://raw.githubusercontent.com/bartzaalberg/php-tester/master/screenshot.png" /> 
+</p>
 
-### Repositories manager for elementary OS
+### PHP code without a server!
 
-A Vala application to manage your repositories in an interface
+A Vala application to test PHP code without a server.
 
 ## Installation
 
@@ -34,7 +34,3 @@ make
 
 ### Installing
 `sudo make install`
-
-### Running
-To run, run the following command. Or just search for repositories in your launcher and open it from there
-`./com.github.bartzaalberg.repositories-polkit`

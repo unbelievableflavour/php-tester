@@ -1,0 +1,15 @@
+Source: com.github.bartzaalberg.php-tester
+Section: utils
+Priority: optional
+Maintainer: Bart Zaalberg <bartzaalberg@gmail.com>
+Build-Depends: cmake (>= 2.6),
+               debhelper (>= 9),
+               libgranite-dev,
+               libgtk-3-dev,
+               valac (>= 0.26)
+
+Package: com.github.bartzaalberg.php-tester
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Pre-Depends: dpkg (>= 1.15.6)
+Description: PHP tester

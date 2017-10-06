@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.github.bartzaalberg.php-tester.desktop</id>
+  <metadata_license>CC0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>PHP Tester</name>
+  <summary>Test some PHP code!</summary>
+  <description>
+    <p>A simple tool to test your PHP code easily.</p>
+    <p>Features:</p>
+     <ul>
+       <li>Code without having to start a whole project!</li>
+       <li>Continue where you left, whenever you won't lose your snippet!</li>
+    </ul>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/bartzaalberg/php-tester/master/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <developer_name>Bart Zaalberg</developer_name>
+  <custom>
+    <value key="x-appcenter-color-primary">rgb(100, 87, 133)</value>
+    <value key="x-appcenter-color-primary-text">#FFF</value>
+  </custom>
+  <url type="homepage">https://github.com/bartzaalberg/php-tester</url>
+  <url type="bugtracker">https://github.com/bartzaalberg/php-tester/issues</url>
+  <url type="help">https://github.com/bartzaalberg/php-tester/issues</url>
+</component>
