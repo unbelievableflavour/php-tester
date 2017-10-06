@@ -48,6 +48,7 @@
         src/ListManager.vala
         src/Dialogs/Alert.vala
         src/Components/HeaderBar.vala
+        src/FileWriter.vala
 
     # tell what libraries to use when compiling
     PACKAGES

@@ -11,9 +11,9 @@ public class App:Granite.Application{
         app_launcher = Constants.DESKTOP_NAME;
 
         build_version = Constants.VERSION;
-        app_icon = "com.github.bartzaalberg.repositories";
-        main_url = "https://github.com/bartzaalberg/repositories";
-        bug_url = "https://github.com/bartzaalberg/repositories/issues";
+        app_icon = "com.github.bartzaalberg.php-tester";
+        main_url = "https://github.com/bartzaalberg/php-tester";
+        bug_url = "https://github.com/bartzaalberg/php-tester/issues";
     }
 
     public override void activate() {
