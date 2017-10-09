@@ -1,6 +1,13 @@
 # PHP Tester
 Test your PHP code easily
  
+<p align="center">
+    <a href="<p align="center">
+    <a href="https://appcenter.elementary.io/com.github.bartzaalberg.php-tester">
+        <img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter">
+    </a>
+</p>
+
 <p align="center"> 
     <img  
     src="https://raw.githubusercontent.com/bartzaalberg/php-tester/master/screenshot.png" /> 
