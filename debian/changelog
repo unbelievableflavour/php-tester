@@ -1,3 +1,11 @@
+com.github.bartzaalberg.php-tester (1.1.0) UNSTABLE; urgency=low
+
+  * Added syntax highlighting
+  * Added line numbers
+  * Updated the icon again
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Wed, 11 Oct 2017 12:37:00 +0200
+
 com.github.bartzaalberg.php-tester (1.0.1) UNSTABLE; urgency=low
 
   * Updated icon
