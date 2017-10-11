@@ -3,12 +3,29 @@ public class ListManager : Object {
     
     static ListManager? instance;
 
-    Gtk.TextView view;
+    public Gtk.SourceLanguageManager manager;
+    public Gtk.SourceBuffer buffer;
+    public Gtk.SourceView view;
+
     Gtk.Label result;
 
     // Private constructor
     ListManager() {
-        view = new Gtk.TextView();
+        var file = File.new_for_path ("phptest.php");
+        var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+        var mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));        
+        
+        buffer = new Gtk.SourceBuffer (null);
+        buffer.highlight_syntax = true;
+
+        manager = Gtk.SourceLanguageManager.get_default ();
+        buffer.language = manager.guess_language (file.get_path(), mime_type);
+
+        view = new Gtk.SourceView ();
+        view.set_show_line_numbers (true);
+        view.set_left_margin (10);
+        view.buffer = buffer;
+
         result = new Gtk.Label("Result will show up here");
     }
  
@@ -20,11 +37,11 @@ public class ListManager : Object {
         return instance;
     }
 
-    public Gtk.TextView getView() {
+    public Gtk.SourceView getView() {
         return this.view;
     }
     
-    public void setView(Gtk.TextView newView) {
+    public void setView(Gtk.SourceView newView) {
         this.view = newView;
     }
 

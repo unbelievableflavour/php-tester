@@ -25,10 +25,11 @@ These dependencies must be present before building
  - `valac`
  - `gtk+-3.0`
  - `granite`
+ - `gtksourceview-3.0`
 
  You can install these on a Ubuntu-based system by executing this command:
  
- `sudo apt install valac libgtk-3-dev libgranite-dev`
+ `sudo apt install valac libgtk-3-dev libgranite-dev gtksourceview-3.0`
 
 
 ### Building

@@ -21,6 +21,7 @@
     set (DEPS_PACKAGES
         gtk+-3.0
         granite
+        gtksourceview-3.0
     )
 
     find_package (PkgConfig)
@@ -53,8 +54,15 @@
     # tell what libraries to use when compiling
     PACKAGES
         gtk+-3.0
+        gtksourceview-3.0
         granite
     )
+
+    pkg_check_modules (GTKSOURCEVIEW_3_18 QUIET gtksourceview-3.0>=3.18)
+    if (GTKSOURCEVIEW_3_18_FOUND)
+      set(GTKSOURCEVIEW_FLAGS "--define=GTKSOURCEVIEW_3_18")
+      message ("-- Found gtksourceview >=3.18 GtkSourceMap available")
+    endif ()
 
     # tell cmake what to call the executable we just made
     add_executable(${EXEC_NAME} ${VALA_C})
