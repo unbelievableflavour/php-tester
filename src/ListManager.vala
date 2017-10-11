@@ -9,6 +9,8 @@ public class ListManager : Object {
     // Private constructor
     ListManager() {
         view = new Gtk.SourceView ();
+        view.set_show_line_numbers (true);
+        view.set_left_margin (10);
         result = new Gtk.Label("Result will show up here");
     }
  
