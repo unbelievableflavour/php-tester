@@ -3,12 +3,12 @@ public class ListManager : Object {
     
     static ListManager? instance;
 
-    Gtk.TextView view;
+    Gtk.SourceView view;
     Gtk.Label result;
 
     // Private constructor
     ListManager() {
-        view = new Gtk.TextView();
+        view = new Gtk.SourceView ();
         result = new Gtk.Label("Result will show up here");
     }
  
@@ -20,11 +20,11 @@ public class ListManager : Object {
         return instance;
     }
 
-    public Gtk.TextView getView() {
+    public Gtk.SourceView getView() {
         return this.view;
     }
     
-    public void setView(Gtk.TextView newView) {
+    public void setView(Gtk.SourceView newView) {
         this.view = newView;
     }
 
