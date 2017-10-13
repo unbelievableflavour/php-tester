@@ -46,10 +46,10 @@
         src/Application.vala
         src/MainWindow.vala
         src/Constants.vala
-        src/ListManager.vala
+        src/SourceViewManager.vala
+        src/FileManager.vala
         src/Dialogs/Alert.vala
         src/Components/HeaderBar.vala
-        src/FileWriter.vala
 
     # tell what libraries to use when compiling
     PACKAGES

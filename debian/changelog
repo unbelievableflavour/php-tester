@@ -1,3 +1,11 @@
+com.github.bartzaalberg.php-tester (1.1.3) UNSTABLE; urgency=low
+
+  * Added a button to copy the text
+  * Changed some button labels
+  * Added more screenshots
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Fri, 13 Oct 2017 12:02:00 +0200
+
 com.github.bartzaalberg.php-tester (1.1.2) UNSTABLE; urgency=low
 
   * Added travis support for the builds

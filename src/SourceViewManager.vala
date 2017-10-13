@@ -1,24 +1,22 @@
 namespace RepositoriesManager {
-public class ListManager : Object {
+public class SourceViewManager : Object {
     
-    static ListManager? instance;
+    static SourceViewManager? instance;
 
-    public Gtk.SourceLanguageManager manager;
-    public Gtk.SourceBuffer buffer;
     public Gtk.SourceView view;
 
     Gtk.Label result;
 
     // Private constructor
-    ListManager() {
+    SourceViewManager() {
         var file = this.getCodeTestFile();
         var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
         var mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));        
         
-        buffer = new Gtk.SourceBuffer (null);
+        var buffer = new Gtk.SourceBuffer (null);
         buffer.highlight_syntax = true;
 
-        manager = Gtk.SourceLanguageManager.get_default ();
+        var manager = Gtk.SourceLanguageManager.get_default ();
         buffer.language = manager.guess_language (file.get_path(), mime_type);
 
         view = new Gtk.SourceView ();
@@ -30,9 +28,9 @@ public class ListManager : Object {
     }
  
     // Public constructor
-    public static ListManager get_instance() {
+    public static SourceViewManager get_instance() {
         if (instance == null) {
-            instance = new ListManager();
+            instance = new SourceViewManager();
         }
         return instance;
     }

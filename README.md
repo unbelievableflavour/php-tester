@@ -15,7 +15,7 @@ Test your PHP code easily
 
 ### PHP code without a server!
 
-A Vala application to test PHP code without a server.
+A Vala application to test PHP snippets without having to start a server.
 
 ## Installation
 

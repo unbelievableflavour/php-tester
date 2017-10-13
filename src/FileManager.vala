@@ -1,20 +1,34 @@
 using Granite.Widgets;
 
 namespace RepositoriesManager {
-public class FileWriter : Object {
+public class FileManager : Object {
 
-    ListManager listManager = ListManager.get_instance();
+
+    SourceViewManager sourceViewManager = SourceViewManager.get_instance();
+
+    static FileManager? instance;
    
-     public void writeToFile(){
+     // Private constructor
+    FileManager() {
+    }
+
+    // Public constructor
+    public static FileManager get_instance() {
+        if (instance == null) {
+            instance = new FileManager();
+        }
+        return instance;
+    }
+
+    public void writeToFile(){
         var file = getCodeTestFile();
 
         try {
             if(file.query_exists() == true){
-
                 file.delete(null);
                 FileOutputStream fos = file.create (FileCreateFlags.REPLACE_DESTINATION, null);
                 DataOutputStream dos = new DataOutputStream (fos);
-                dos.put_string (listManager.getView().buffer.text, null);
+                dos.put_string (sourceViewManager.getView().buffer.text, null);
             }
         } catch (Error e) {
             new Alert ("An error Occurred", e.message);
