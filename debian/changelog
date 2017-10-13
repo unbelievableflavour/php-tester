@@ -1,3 +1,10 @@
+com.github.bartzaalberg.php-tester (1.1.2) UNSTABLE; urgency=low
+
+  * Added travis support for the builds
+  * Fixed a bug which would keep the application running in the background
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Fri, 13 Oct 2017 08:45:00 +0200
+
 com.github.bartzaalberg.php-tester (1.1.1) UNSTABLE; urgency=low
 
   * Fixed phptest.php file creation
