@@ -1,3 +1,11 @@
+com.github.bartzaalberg.php-tester (1.2.0) UNSTABLE; urgency=low
+
+  * Added icons instead of buttons
+  * Added added colour the headerbar
+  * Added added cheatsheet
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Mon, 16 Oct 2017 10:36:00 +0200
+
 com.github.bartzaalberg.php-tester (1.1.4) UNSTABLE; urgency=low
 
   * Added run shortcut (ctrl + r)
