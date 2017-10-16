@@ -48,5 +48,27 @@ public class FileManager : Object {
         }
         return file;
     }
+
+    public void runCode(){
+        writeToFile();
+        string result;
+        string error;
+        int status;
+        
+        try {
+	        Process.spawn_command_line_sync ("php phptest.php",
+								        out result,
+								        out error,
+								        out status);
+
+            sourceViewManager.setResult(result);                
+            if(error != null && error != ""){
+                new Alert("PHP error",error);                
+            }
+	     
+        } catch (SpawnError e) {
+            new Alert("An error occured", e.message);
+        }
+    }
 }
 }
