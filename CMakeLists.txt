@@ -49,7 +49,9 @@
         src/SourceViewManager.vala
         src/FileManager.vala
         src/Dialogs/Alert.vala
+        src/Dialogs/Cheatsheet.vala
         src/Components/HeaderBar.vala
+        src/Components/HeaderLabel.vala
 
     # tell what libraries to use when compiling
     PACKAGES

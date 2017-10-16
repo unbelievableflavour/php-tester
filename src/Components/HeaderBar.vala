@@ -8,29 +8,31 @@ public class HeaderBar : Gtk.HeaderBar {
     Gtk.Clipboard clipboard;
     
     public HeaderBar(){
+        
+        Granite.Widgets.Utils.set_color_primary (this, Constants.BRAND_COLOR);
+
         clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD);
 
-        var start_button = new Gtk.Button.with_label ("Run");
-        start_button.margin_end = 12;
+        var start_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic");
         start_button.clicked.connect (() => {
             fileManager.runCode();
         });
 
-        var copy_button = new Gtk.Button.with_label ("Copy");
-        
-        copy_button.margin_end = 12;
+        var copy_button = new Gtk.Button.from_icon_name ("edit-copy-symbolic");
         copy_button.clicked.connect (() => {
             clipboard.set_text(sourceViewManager.getView().buffer.text, -1);
         });
 
-        var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
-        button_box.set_layout (Gtk.ButtonBoxStyle.START);
-        button_box.pack_start (start_button);
-        button_box.pack_start (copy_button);
+        var settings_button = new Gtk.Button.from_icon_name ("document-properties-symbolic");
+        settings_button.clicked.connect (() => {
+            new Cheatsheet();
+        });
 
         this.show_close_button = true;
 
-        this.pack_start (button_box);
+        this.pack_start (start_button);
+        this.pack_start (copy_button);
+        this.pack_end (settings_button);
     }
 }
 }
