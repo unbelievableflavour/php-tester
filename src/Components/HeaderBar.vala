@@ -19,7 +19,7 @@ public class HeaderBar : Gtk.HeaderBar {
 
         var copy_menu_button = new Gtk.MenuButton ();
         copy_menu_button.has_tooltip = true;
-        copy_menu_button.tooltip_text = ("Settings");
+        copy_menu_button.tooltip_text = ("Copy input or output");
         copy_menu_button.set_image (new Gtk.Image.from_icon_name ("edit-copy-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
 
         var copy_input = new Gtk.MenuItem.with_label ("Copy Input (ctrl + i)");
