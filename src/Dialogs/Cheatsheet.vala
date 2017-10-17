@@ -13,10 +13,20 @@ public class Cheatsheet : Gtk.Dialog {
         var runEntry = new Gtk.Label (null);
         runEntry.set_markup("<b>ctrl + r</b>");
 
+        var copyInputLabel = new Gtk.Label ("Copy input");
+        copyInputLabel.halign = Gtk.Align.START;        
+        var copyInputEntry = new Gtk.Label (null);
+        copyInputEntry.set_markup("<b>ctrl + i</b>");
+
+        var copyOutputLabel = new Gtk.Label ("Copy output");
+        copyOutputLabel.halign = Gtk.Align.START;   
+        var copyOutputEntry = new Gtk.Label (null);
+        copyOutputEntry.set_markup("<b>ctrl + o</b>");
+
         var cheatsheetLabel = new Gtk.Label ("Open the cheatsheet");
-        cheatsheetLabel.halign = Gtk.Align.START;        
+        cheatsheetLabel.halign = Gtk.Align.START;
         var cheatsheetEntry = new Gtk.Label (null);
-        cheatsheetEntry.set_markup("<b>ctrl + h</b>");        
+        cheatsheetEntry.set_markup("<b>ctrl + h</b>");
         
         var close_button = new Gtk.Button.with_label ("Close");
         close_button.margin_right = 6;
@@ -38,9 +48,13 @@ public class Cheatsheet : Gtk.Dialog {
 
         general_grid.attach (runLabel, 0, 1, 1, 1);
         general_grid.attach (runEntry, 1, 1, 1, 1);
-        general_grid.attach (cheatsheetLabel, 0, 2, 1, 1);
-        general_grid.attach (cheatsheetEntry, 1, 2, 1, 1);
-    
+        general_grid.attach (copyInputLabel, 0, 2, 1, 1);
+        general_grid.attach (copyInputEntry, 1, 2, 1, 1);
+        general_grid.attach (copyOutputLabel, 0, 3, 1, 1);
+        general_grid.attach (copyOutputEntry, 1, 3, 1, 1);
+        general_grid.attach (cheatsheetLabel, 0, 4, 1, 1);
+        general_grid.attach (cheatsheetEntry, 1, 4, 1, 1);
+
         var main_grid = new Gtk.Grid ();
         main_grid.attach (general_grid, 0, 0, 1, 1);
         main_grid.attach (button_box, 0, 1, 1, 1);

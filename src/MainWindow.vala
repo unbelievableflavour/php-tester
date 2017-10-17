@@ -5,24 +5,20 @@ public class MainWindow : Gtk.Window{
 
     private SourceViewManager sourceViewManager = SourceViewManager.get_instance();
     private FileManager fileManager = FileManager.get_instance();
-   
-    Gtk.TextView view;
-    Gtk.Label resultLabel;    
+    private Gtk.Clipboard clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD);
 
     construct {
+
         set_default_size(700, 500);
         set_titlebar (new HeaderBar());
 
-        view = sourceViewManager.getView();
+        var view = sourceViewManager.getView();
 		view.buffer.text = "<?php\n";
 
         Gtk.ScrolledWindow result_box = new Gtk.ScrolledWindow(null, null);
         result_box.set_border_width (10);
         result_box.set_size_request (200,200);
-
-        resultLabel = sourceViewManager.getResult();
-        
-        result_box.add(resultLabel);
+        result_box.add(sourceViewManager.getResult());
         
         var pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
             pane.expand = true;
@@ -30,7 +26,10 @@ public class MainWindow : Gtk.Window{
             pane.pack2 (result_box, false, false);
 
         add (pane);
+        addShortcuts();
+    }
 
+    private void addShortcuts(){
         key_press_event.connect ((e) => { 
             switch (e.keyval) { 
                 case Gdk.Key.r:    
@@ -42,11 +41,21 @@ public class MainWindow : Gtk.Window{
                   if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {  
                     new Cheatsheet(); 
                   } 
+                  break;
+                case Gdk.Key.i:    
+                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {  
+                    clipboard.set_text(sourceViewManager.getView().buffer.text, -1);
+                  } 
+                  break; 
+                case Gdk.Key.o:    
+                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {  
+                    clipboard.set_text(sourceViewManager.getResult().get_text(), -1);
+                  } 
                   break; 
             } 
  
             return false; 
-        });
+        });            
     }
 }
 }
