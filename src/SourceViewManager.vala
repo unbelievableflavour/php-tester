@@ -1,4 +1,4 @@
-namespace RepositoriesManager {
+namespace PhpTester {
 public class SourceViewManager : Object {
     
     static SourceViewManager? instance;

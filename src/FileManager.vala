@@ -1,6 +1,6 @@
 using Granite.Widgets;
 
-namespace RepositoriesManager {
+namespace PhpTester {
 public class FileManager : Object {
 
 

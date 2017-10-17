@@ -1,6 +1,6 @@
 using Granite.Widgets;
 
-namespace RepositoriesManager {
+namespace PhpTester {
 public class HeaderBar : Gtk.HeaderBar {
 
     SourceViewManager sourceViewManager = SourceViewManager.get_instance();

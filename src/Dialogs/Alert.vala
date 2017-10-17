@@ -1,4 +1,4 @@
-namespace RepositoriesManager {
+namespace PhpTester {
 public class Alert : Gtk.Dialog {
 
     public Alert(string title, string description){

@@ -1,6 +1,6 @@
 using Granite.Widgets;
 
-namespace RepositoriesManager {
+namespace PhpTester {
 public class MainWindow : Gtk.Window{
 
     private SourceViewManager sourceViewManager = SourceViewManager.get_instance();

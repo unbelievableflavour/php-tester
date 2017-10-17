@@ -1,4 +1,4 @@
-namespace RepositoriesManager {
+namespace PhpTester {
 public class Cheatsheet : Gtk.Dialog {
   
     public Cheatsheet(){

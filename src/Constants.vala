@@ -1,4 +1,4 @@
-namespace RepositoriesManager.Constants {
+namespace PhpTester.Constants {
     public const string APP_NAME = "PHP Tester";
     public const string EXEC_NAME = "php-tester";
 
