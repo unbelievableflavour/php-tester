@@ -9,20 +9,26 @@ public class SourceViewManager : Object {
 
     // Private constructor
     SourceViewManager() {
-        var file = this.getCodeTestFile();
-        var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-        var mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));        
         
-        var buffer = new Gtk.SourceBuffer (null);
-        buffer.highlight_syntax = true;
+        try {
+            var file = this.getCodeTestFile();
+            var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+            var mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));      
 
-        var manager = Gtk.SourceLanguageManager.get_default ();
-        buffer.language = manager.guess_language (file.get_path(), mime_type);
+            var buffer = new Gtk.SourceBuffer (null);
+            buffer.highlight_syntax = true;
 
-        view = new Gtk.SourceView ();
-        view.set_show_line_numbers (true);
-        view.set_left_margin (10);
-        view.buffer = buffer;
+            var manager = Gtk.SourceLanguageManager.get_default ();
+            buffer.language = manager.guess_language (file.get_path(), mime_type);
+        
+            view = new Gtk.SourceView ();
+            view.set_show_line_numbers (true);
+            view.set_left_margin (10);
+            view.buffer = buffer;
+  
+        } catch (Error e) {
+            error ("%s", e.message);
+        }
 
         result = new Gtk.Label("Result will show up here");
     }
