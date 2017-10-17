@@ -1,8 +1,17 @@
+com.github.bartzaalberg.php-tester (1.2.1) UNSTABLE; urgency=low
+
+  * Added dropdown menu's
+  * Added copy output
+  * Added tooltips for the buttons
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Tue, 17 Oct 2017 16:01:00 +0200
+
+
 com.github.bartzaalberg.php-tester (1.2.0) UNSTABLE; urgency=low
 
   * Added icons instead of buttons
-  * Added added colour the headerbar
-  * Added added cheatsheet
+  * Added colour the headerbar
+  * Added cheatsheet
 
  -- Bart Zaalberg <bartzaalberg@gmail.com>  Mon, 16 Oct 2017 10:36:00 +0200
 
