@@ -8,25 +8,17 @@ public class Cheatsheet : Gtk.Dialog {
 
         var general_header = new HeaderLabel ("Cheatsheet");
         
-        var runLabel = new Gtk.Label ("Run the code");
-        runLabel.halign = Gtk.Align.START;
-        var runEntry = new Gtk.Label (null);
-        runEntry.set_markup("<b>ctrl + r</b>");
+        var runLabel = generateLabel ("Run the code");
+        var runEntry = generateEntry ("ctrl + r");
 
-        var copyInputLabel = new Gtk.Label ("Copy input");
-        copyInputLabel.halign = Gtk.Align.START;        
-        var copyInputEntry = new Gtk.Label (null);
-        copyInputEntry.set_markup("<b>ctrl + i</b>");
+        var copyInputLabel = generateLabel ("Copy input");
+        var copyInputEntry = generateEntry ("ctrl + i");
 
-        var copyOutputLabel = new Gtk.Label ("Copy output");
-        copyOutputLabel.halign = Gtk.Align.START;   
-        var copyOutputEntry = new Gtk.Label (null);
-        copyOutputEntry.set_markup("<b>ctrl + o</b>");
+        var copyOutputLabel = generateLabel ("Copy output"); 
+        var copyOutputEntry = generateEntry ("ctrl + o");
 
-        var cheatsheetLabel = new Gtk.Label ("Open the cheatsheet");
-        cheatsheetLabel.halign = Gtk.Align.START;
-        var cheatsheetEntry = new Gtk.Label (null);
-        cheatsheetEntry.set_markup("<b>ctrl + h</b>");
+        var cheatsheetLabel = generateLabel ("Open the cheatsheet");
+        var cheatsheetEntry = generateEntry ("ctrl + h");
         
         var close_button = new Gtk.Button.with_label ("Close");
         close_button.margin_right = 6;
@@ -62,5 +54,20 @@ public class Cheatsheet : Gtk.Dialog {
         ((Gtk.Container) get_content_area ()).add (main_grid);
         this.show_all ();
     }
+
+    public Gtk.Label generateLabel (string labelText){
+        var label = new Gtk.Label (labelText);
+        label.halign = Gtk.Align.START;
+
+        return label;
+    }
+    
+    public Gtk.Label generateEntry (string entryText){
+        var entry = new Gtk.Label (null);
+        entry.set_markup("<b>" + entryText + "</b>");
+
+        return entry;
+    }
+    
 }
 }

@@ -3,6 +3,7 @@ com.github.bartzaalberg.php-tester (1.2.1) UNSTABLE; urgency=low
   * Added dropdown menu's
   * Added copy output
   * Added tooltips for the buttons
+  * refactored some code
 
  -- Bart Zaalberg <bartzaalberg@gmail.com>  Tue, 17 Oct 2017 16:01:00 +0200
 
