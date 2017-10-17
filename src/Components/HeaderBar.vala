@@ -12,7 +12,7 @@ public class HeaderBar : Gtk.HeaderBar {
         Granite.Widgets.Utils.set_color_primary (this, Constants.BRAND_COLOR);
 
         var start_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic");
-        start_button.set_tooltip_text("Run the code (ctrl + r)");
+        start_button.set_tooltip_text("Run the code");
         start_button.clicked.connect (() => {
             fileManager.runCode();
         });
@@ -22,12 +22,12 @@ public class HeaderBar : Gtk.HeaderBar {
         copy_menu_button.tooltip_text = ("Copy input or output");
         copy_menu_button.set_image (new Gtk.Image.from_icon_name ("edit-copy-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
 
-        var copy_input = new Gtk.MenuItem.with_label ("Copy Input (ctrl + i)");
+        var copy_input = new Gtk.MenuItem.with_label ("Copy Input");
         copy_input.activate.connect (() => {
             clipboard.set_text(sourceViewManager.getView().buffer.text, -1);
         });
 
-        var copy_output = new Gtk.MenuItem.with_label ("Copy Output (ctrl + o)");
+        var copy_output = new Gtk.MenuItem.with_label ("Copy Output");
         copy_output.activate.connect (() => {
             clipboard.set_text(sourceViewManager.getResult().get_text(), -1);
         });
