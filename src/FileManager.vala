@@ -3,7 +3,6 @@ using Granite.Widgets;
 namespace PhpTester {
 public class FileManager : Object {
 
-
     SourceViewManager sourceViewManager = SourceViewManager.get_instance();
 
     static FileManager? instance;

@@ -50,15 +50,15 @@ public class HeaderBar : Gtk.HeaderBar {
             new Cheatsheet();
         });
 
-//        var preferences = new Gtk.MenuItem.with_label ("Preferences");
-//        preferences.activate.connect (() => {
-//            new Preferences();
-//        });
+        var preferences = new Gtk.MenuItem.with_label ("Preferences");
+        preferences.activate.connect (() => {
+            new Preferences();
+        });
 
         var settings_menu = new Gtk.Menu ();
         settings_menu.add (cheatsheet);
-//        settings_menu.add (new Gtk.SeparatorMenuItem ());
-//        menu.add (preferences);
+        settings_menu.add (new Gtk.SeparatorMenuItem ());
+        settings_menu.add (preferences);
         settings_menu.show_all ();
 
         menu_button.popup = settings_menu;

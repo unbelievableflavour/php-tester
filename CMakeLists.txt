@@ -50,6 +50,7 @@
         src/FileManager.vala
         src/Dialogs/Alert.vala
         src/Dialogs/Cheatsheet.vala
+        src/Dialogs/Preferences.vala
         src/Components/HeaderBar.vala
         src/Components/HeaderLabel.vala
 
@@ -74,3 +75,7 @@
 
     #add the data directory and activated the cmakelists in that folder
     add_subdirectory (data)
+
+    # add settings schema to pc and recomple all schemas
+    include (GSettings)
+    add_schema (data/com.github.bartzaalberg.php-tester.gschema.xml)

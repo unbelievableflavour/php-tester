@@ -3,8 +3,9 @@ public class SourceViewManager : Object {
     
     static SourceViewManager? instance;
 
+    private Settings settings = new Settings ("com.github.bartzaalberg.php-tester");
     public Gtk.SourceView view;
-
+    public Gtk.SourceBuffer buffer;
     Gtk.Label result;
 
     // Private constructor
@@ -15,8 +16,10 @@ public class SourceViewManager : Object {
             var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
             var mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));      
 
-            var buffer = new Gtk.SourceBuffer (null);
+            buffer = new Gtk.SourceBuffer (null);
             buffer.highlight_syntax = true;
+
+            setTheme(settings.get_string ("style-scheme"));
 
             var manager = Gtk.SourceLanguageManager.get_default ();
             buffer.language = manager.guess_language (file.get_path(), mime_type);
@@ -69,6 +72,11 @@ public class SourceViewManager : Object {
             }
         }
         return file;
+    }
+
+    public void setTheme(string themeName){
+        var style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
+        buffer.style_scheme = style_scheme_manager.get_scheme (themeName);
     }
 }
 }

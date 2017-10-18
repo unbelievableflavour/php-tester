@@ -1,0 +1,12 @@
+<schemalist>
+  <schema id="com.github.bartzaalberg.php-tester" path="/org/example/my-app/" gettext-domain="my-app">
+
+   <key name="style-scheme" type="s">
+		<default>'classic'</default>
+		<summary>Preferred Style Scheme</summary>
+		<description>Set the preferred style scheme.</description>
+	</key>
+
+  </schema>
+</schemalist>
+
