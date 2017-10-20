@@ -8,12 +8,11 @@ public class MainWindow : Gtk.Window{
     private Gtk.Clipboard clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD);
 
     construct {
-
         set_default_size(700, 500);
         set_titlebar (new HeaderBar());
 
         var view = sourceViewManager.getView();
-		view.buffer.text = "<?php\n";
+		view.buffer.text = fileManager.getCodeTestFileAsString();
 
         Gtk.ScrolledWindow result_box = new Gtk.ScrolledWindow(null, null);
         result_box.set_border_width (10);

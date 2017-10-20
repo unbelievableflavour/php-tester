@@ -35,17 +35,44 @@ public class FileManager : Object {
     }
 
     public File getCodeTestFile(){
-
-        var file = File.new_for_path ("phptest.php");
-        if (!file.query_exists ()) {
-            try {
+        var file = File.new_for_path ("phptest.php");            
+        
+        try {
+            if (!file.query_exists ()) {
                 file.create (FileCreateFlags.REPLACE_DESTINATION, null);
                 getCodeTestFile();
-            } catch (Error e) {
-                error ("%s", e.message);
             }
+        } catch (Error e) {
+            error ("%s", e.message);
         }
+
         return file;
+    }
+
+    public string getCodeTestFileAsString(){
+        var file = getCodeTestFile();
+        
+        try {
+            // Open file for reading and wrap returned FileInputStream into a
+            // DataInputStream, so we can read line by line
+            var lines = new DataInputStream (file.read ());
+
+            string line;
+            string fileAsString = "";
+
+            // Read lines until end of file (null) is reached
+            while ((line = lines.read_line (null)) != null) {
+                fileAsString += line + "\n";
+            }
+
+            if (fileAsString == ""){
+                fileAsString = "<?php\n";
+            }
+           return fileAsString;
+
+        } catch (Error e) {
+            error ("%s", e.message);
+        }
     }
 
     public void runCode(){
