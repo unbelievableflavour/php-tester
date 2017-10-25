@@ -9,6 +9,8 @@ namespace PhpTester.Constants {
     public const string VERSION = "0.0.1";
     public const string VERSION_INFO = "Unstable";
     public const string APP_YEARS = "2017-2018";
+    public const int APPLICATION_WIDTH = 700;
+    public const int APPLICATION_HEIGHT = 500;
 
     public const Gdk.RGBA BRAND_COLOR = { 0.451, 0.514, 0.737, 1.0 };
 }

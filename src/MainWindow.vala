@@ -8,7 +8,7 @@ public class MainWindow : Gtk.Window{
     private Gtk.Clipboard clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD);
 
     construct {
-        set_default_size(700, 500);
+        set_default_size(Constants.APPLICATION_WIDTH, Constants.APPLICATION_HEIGHT);
         set_titlebar (new HeaderBar());
 
         var view = sourceViewManager.getView();
