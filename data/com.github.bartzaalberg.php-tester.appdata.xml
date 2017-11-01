@@ -16,6 +16,99 @@
        <li>Choose a cool theme to code in</li>
     </ul>
   </description>
+  <releases>
+   <release version="1.3.0" date="2017-10-20">
+      <description>
+        <p>1.3.0</p>
+        <ul>
+          <li>Added theme choosing</li>
+          <li>Added progress saving</li>
+        </ul>
+      </description>
+   </release>
+   <release version="1.2.1" date="2017-10-17">
+      <description>
+        <p>1.2.1</p>
+        <ul>
+          <li>Added dropdown menu's</li>
+          <li>Added copy output</li>
+          <li>Added tooltips for the buttons</li>
+          <li>refactored some code</li>
+        </ul>
+      </description>
+   </release>
+   <release version="1.2.0" date="2017-10-16">
+      <description>
+        <p>1.2.0</p>
+        <ul>
+          <li>Added travis support for the builds</li>
+          <li>Fixed a bug which would keep the application running in the background</li>
+        </ul>
+      </description>
+   </release>
+   <release version="1.1.4" date="2017-10-16">
+      <description>
+        <p>1.1.4</p>
+        <ul>
+          <li>Added run shortcut (ctrl + r)</li>
+        </ul>
+      </description>
+   </release>
+   <release version="1.1.3" date="2017-10-13">
+      <description>
+        <p>1.1.3</p>
+        <ul>
+          <li>Added a button to copy the text</li>
+          <li>Changed some button labels</li>
+          <li>Added more screenshots</li>
+        </ul>
+      </description>
+   </release>
+   <release version="1.1.2" date="2017-10-13">
+      <description>
+        <p>1.1.2</p>
+        <ul>
+          <li>Added travis support for the builds</li>
+          <li>Fixed a bug which would keep the application running in the background</li>
+        </ul>
+      </description>
+   </release>
+   <release version="1.1.1" date="2017-10-12">
+      <description>
+        <p>1.1.1</p>
+        <ul>
+          <li>Fixed phptest.php file creation</li>
+          <li>Fixed compiling error</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.1.0" date="2017-10-11">
+      <description>
+        <p>1.1.0</p>
+        <ul>
+          <li>Added syntax highlighting</li>
+          <li>Added line numbers</li>
+          <li>Updated the icon again</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.0.1" date="2017-10-07">
+      <description>
+        <p>1.0.1</p>
+        <ul>
+          <li>Updated icon</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.0.0" date="2017-10-06">
+      <description>
+        <p>1.0.0</p>
+        <ul>
+          <li>First Release</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/bartzaalberg/php-tester/master/screenshot.png</image>
