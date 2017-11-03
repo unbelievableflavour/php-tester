@@ -1,3 +1,11 @@
+com.github.bartzaalberg.php-tester (1.4.0) UNSTABLE; urgency=low
+
+  * Added ability to change font and fontsize
+  * Made the result better readable
+  * Added about action
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Fri, 03 Nov 2017 16:07:00 +0200
+
 com.github.bartzaalberg.php-tester (1.3.0) UNSTABLE; urgency=low
 
   * Added theme choosing
