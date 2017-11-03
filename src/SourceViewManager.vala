@@ -6,11 +6,10 @@ public class SourceViewManager : Object {
     private Settings settings = new Settings ("com.github.bartzaalberg.php-tester");
     public Gtk.SourceView view;
     public Gtk.SourceBuffer buffer;
-    Gtk.Label result;
+    public Gtk.TextView result;
 
     // Private constructor
-    SourceViewManager() {
-        
+    SourceViewManager() {   
         try {
             var file = this.getCodeTestFile();
             var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
@@ -35,7 +34,14 @@ public class SourceViewManager : Object {
             error ("%s", e.message);
         }
 
-        result = new Gtk.Label("Result will show up here");
+        result = new Gtk.TextView ();
+        result.set_wrap_mode(Gtk.WrapMode.WORD);
+        result.set_editable (false);
+        result.set_left_margin (10);
+        result.set_right_margin (10);
+        result.set_top_margin (10);
+        result.set_bottom_margin (10);
+        result.buffer.text = "Result will show up here";
     }
  
     // Public constructor
@@ -54,12 +60,12 @@ public class SourceViewManager : Object {
         this.view = newView;
     }
 
-     public Gtk.Label getResult() {
+     public Gtk.TextView getResult() {
         return this.result;
     }
 
     public void setResult(string result){
-        this.result.set_text(result);
+        this.result.buffer.text = result;
     }
 
     public File getCodeTestFile(){

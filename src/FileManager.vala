@@ -89,7 +89,7 @@ public class FileManager : Object {
 
             sourceViewManager.setResult(result);                
             if(error != null && error != ""){
-                new Alert("PHP error",error);                
+                sourceViewManager.setResult(error);
             }
 	     
         } catch (SpawnError e) {

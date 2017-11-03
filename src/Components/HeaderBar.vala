@@ -29,7 +29,7 @@ public class HeaderBar : Gtk.HeaderBar {
 
         var copy_output = new Gtk.MenuItem.with_label ("Copy Output");
         copy_output.activate.connect (() => {
-            clipboard.set_text(sourceViewManager.getResult().get_text(), -1);
+            clipboard.set_text(sourceViewManager.getResult().buffer.text, -1);
         });
 
         var copy_menu = new Gtk.Menu ();

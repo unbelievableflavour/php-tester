@@ -15,7 +15,7 @@ public class MainWindow : Gtk.Window{
 		view.buffer.text = fileManager.getCodeTestFileAsString();
 
         Gtk.ScrolledWindow result_box = new Gtk.ScrolledWindow(null, null);
-        result_box.set_border_width (10);
+        result_box.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
         result_box.set_size_request (200,200);
         result_box.add(sourceViewManager.getResult());
         
@@ -48,7 +48,7 @@ public class MainWindow : Gtk.Window{
                   break; 
                 case Gdk.Key.o:    
                   if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {  
-                    clipboard.set_text(sourceViewManager.getResult().get_text(), -1);
+                    clipboard.set_text(sourceViewManager.getResult().buffer.text, -1);
                   } 
                   break; 
             } 
