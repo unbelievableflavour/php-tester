@@ -28,7 +28,9 @@ public class SourceViewManager : Object {
             view.set_show_line_numbers (true);
             view.set_left_margin (10);
             view.buffer = buffer;
-  
+
+            setFont(settings.get_string ("font"));
+
         } catch (Error e) {
             error ("%s", e.message);
         }
@@ -77,6 +79,14 @@ public class SourceViewManager : Object {
     public void setTheme(string themeName){
         var style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
         buffer.style_scheme = style_scheme_manager.get_scheme (themeName);
+    }
+
+    public void setFont(string font){
+        if(settings.get_boolean ("use-system-font")){
+            font = "Monospace 9";
+        }
+        
+        view.override_font (Pango.FontDescription.from_string (font));
     }
 }
 }
