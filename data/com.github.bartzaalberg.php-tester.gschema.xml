@@ -16,6 +16,11 @@
 		<summary>Preferred Font</summary>
 		<description>Set the preferred font.</description>
 	</key>
+	<key name="php-version" type="s">
+		<default>'php7.1'</default>
+		<summary>The php version you are using</summary>
+		<description>Set the preferred php version.</description>
+	</key>
 
   </schema>
 </schemalist>

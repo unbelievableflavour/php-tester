@@ -3,13 +3,87 @@ using Granite.Widgets;
 namespace PhpTester {
 public class HeaderBar : Gtk.HeaderBar {
 
+    private Settings settings = new Settings ("com.github.bartzaalberg.php-tester");
     SourceViewManager sourceViewManager = SourceViewManager.get_instance();
     FileManager fileManager = FileManager.get_instance();
     Gtk.Clipboard clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD);
 
+    string[] phpVersions = {};
+
+    enum Column {
+		VERSION
+	}
+
+	void item_changed (Gtk.ComboBox combo) {
+        settings.set_string("php-version", phpVersions [combo.get_active ()]);
+	}
+
     construct {
 
+        try {
+            string directory = "/usr/bin";
+            Dir dir = Dir.open (directory, 0);
+            string? name = null;
+            while ((name = dir.read_name ()) != null) {
+                string path = Path.build_filename (directory, name);
+                string type = "";
+
+                if (!(FileUtils.test (path, FileTest.IS_EXECUTABLE))) {
+                    continue;
+                }
+
+                if(!("php" in name)) {
+                    continue;
+                }
+
+                if((name.substring (0, 3) != "php")){
+                    continue;                    
+                }
+
+                string shortString = name.substring (-3);
+                int number = int.parse(shortString);
+
+                if(number == 0){
+                    continue;
+                }
+                phpVersions += name;
+            }
+        } catch (FileError err) {
+            stderr.printf (err.message);
+        }
+
+        if(phpVersions.length == 0){
+            new Alert("No PHP was found.","This application requires at least 1 PHP version installed in your /usr/bin folder. Please install it.");
+        }
+
         Granite.Widgets.Utils.set_color_primary (this, Constants.BRAND_COLOR);
+
+
+        Gtk.ListStore liststore = new Gtk.ListStore (1, typeof (string));
+
+		for (int i = 0; i < phpVersions.length; i++){
+			Gtk.TreeIter iter;
+			liststore.append (out iter);
+			liststore.set (iter, Column.VERSION, phpVersions[i]);
+		}
+
+
+        Gtk.ComboBox combobox = new Gtk.ComboBox.with_model (liststore);
+		Gtk.CellRendererText cell = new Gtk.CellRendererText ();
+		combobox.pack_start (cell, false);
+
+		combobox.set_attributes (cell, "text", Column.VERSION);
+
+		/* Set the first item in the list to be selected (active). */
+		combobox.set_active (0);
+
+		/* Connect the 'changed' signal of the combobox
+		 * to the signal handler (aka. callback function).
+		 */
+		combobox.changed.connect (this.item_changed);
+
+		/* Add the combobox to this window */
+		this.add (combobox);
 
         var start_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic");
         start_button.set_tooltip_text("Run the code");
