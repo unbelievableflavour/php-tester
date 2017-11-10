@@ -3,6 +3,7 @@ using Granite.Widgets;
 namespace PhpTester {
 public class FileManager : Object {
 
+    private Settings settings = new Settings ("com.github.bartzaalberg.php-tester");
     SourceViewManager sourceViewManager = SourceViewManager.get_instance();
 
     static FileManager? instance;
@@ -81,8 +82,10 @@ public class FileManager : Object {
         string error;
         int status;
         
+        var phpversion = settings.get_string ("php-version");
+
         try {
-	        Process.spawn_command_line_sync ("php phptest.php",
+	        Process.spawn_command_line_sync ("/usr/bin/" + phpversion + " phptest.php",
 								        out result,
 								        out error,
 								        out status);
