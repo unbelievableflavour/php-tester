@@ -6,30 +6,15 @@ public class MainWindow : Gtk.Window{
     private SourceViewManager sourceViewManager = SourceViewManager.get_instance();
     private FileManager fileManager = FileManager.get_instance();
     private Gtk.Clipboard clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD);
+    private StackManager stackManager = StackManager.get_instance();
 
     construct {
         set_default_size(Constants.APPLICATION_WIDTH, Constants.APPLICATION_HEIGHT);
+
+        stackManager.loadViews(this);
+
         set_titlebar (new HeaderBar());
 
-        var view = sourceViewManager.getView();
-		view.buffer.text = fileManager.getCodeTestFileAsString();
-
-        Gtk.ScrolledWindow view_box = new Gtk.ScrolledWindow(null, null);
-        view_box.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-        view_box.set_size_request (200,200);
-        view_box.add(view);
-
-        Gtk.ScrolledWindow result_box = new Gtk.ScrolledWindow(null, null);
-        result_box.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-        result_box.set_size_request (200,200);
-        result_box.add(sourceViewManager.getResult());
-        
-        var pane = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            pane.expand = true;
-            pane.pack1 (view_box, true, false);
-            pane.pack2 (result_box, false, false);
-
-        add (pane);
         addShortcuts();
     }
 

@@ -47,12 +47,16 @@
         src/MainWindow.vala
         src/Constants.vala
         src/SourceViewManager.vala
+        src/StackManager.vala
+        src/PhpVersionManager.vala
         src/FileManager.vala
         src/Dialogs/Alert.vala
         src/Dialogs/Cheatsheet.vala
         src/Dialogs/Preferences.vala
         src/Components/HeaderBar.vala
         src/Components/HeaderLabel.vala
+        src/Views/StandardView.vala
+        src/Views/NoPhpFoundView.vala
 
     # tell what libraries to use when compiling
     PACKAGES
