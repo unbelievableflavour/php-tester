@@ -1,3 +1,10 @@
+com.github.bartzaalberg.php-tester (1.5.0) UNSTABLE; urgency=low
+
+  * Added php version switching
+  * Made source view scrollable
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Fri, 10 Nov 2017 14:01:00 +0200
+
 com.github.bartzaalberg.php-tester (1.4.0) UNSTABLE; urgency=low
 
   * Added ability to change font and fontsize

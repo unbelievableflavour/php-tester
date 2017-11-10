@@ -17,6 +17,15 @@
     </ul>
   </description>
   <releases>
+   <release version="1.5.0" date="2017-11-10">
+      <description>
+        <p>PHP version switching</p>
+        <ul>
+          <li>Added php version switching</li>
+          <li>Made source view scrollable</li>
+        </ul>
+      </description>
+   </release>
    <release version="1.4.0" date="2017-11-03">
       <description>
         <p>font, fontSize and result improvements</p>
