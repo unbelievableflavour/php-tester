@@ -1,29 +1,29 @@
 namespace PhpTester {
 public class Cheatsheet : Gtk.Dialog {
   
-    private HeaderLabel general_header = new HeaderLabel ("Cheatsheet");
+    private HeaderLabel general_header = new HeaderLabel (_("Cheatsheet"));
 
     public Cheatsheet(){
-        title = "Cheatsheet";
+        title = _("Cheatsheet");
         resizable = false;
         deletable = false;
 
         Gtk.Label[] labels = {};
         Gtk.Label[] shortcuts = {};
 
-        labels += generateLabel ("Run the code");
+        labels += generateLabel (_("Run the code"));
         shortcuts += generateEntry ("ctrl + r");
 
-        labels += generateLabel ("Copy input");
+        labels += generateLabel (_("Copy input"));
         shortcuts += generateEntry ("ctrl + i");
 
-        labels += generateLabel ("Copy output"); 
+        labels += generateLabel (_("Copy output")); 
         shortcuts += generateEntry ("ctrl + o");
 
-        labels += generateLabel ("Open the cheatsheet");
+        labels += generateLabel (_("Open the cheatsheet"));
         shortcuts += generateEntry ("ctrl + h");
 
-        var close_button = new Gtk.Button.with_label ("Close");
+        var close_button = new Gtk.Button.with_label (_("Close"));
         close_button.margin_right = 6;
         close_button.clicked.connect (() => {
             this.destroy ();

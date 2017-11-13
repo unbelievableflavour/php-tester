@@ -41,7 +41,7 @@ public class SourceViewManager : Object {
         result.set_right_margin (10);
         result.set_top_margin (10);
         result.set_bottom_margin (10);
-        result.buffer.text = "Result will show up here";
+        result.buffer.text = _("Result will show up here");
     }
  
     // Public constructor

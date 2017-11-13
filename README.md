@@ -39,7 +39,8 @@ These dependencies must be present before building
 ```
 mkdir build
 cd build
-cmake ..
+cmake -DCMAKE_INSTALL_PREFIX=/usr ../
+make pot
 make
 ```
 

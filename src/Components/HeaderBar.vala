@@ -88,7 +88,7 @@ public class HeaderBar : Gtk.HeaderBar {
     }
 
     private void generateStartButton(){
-        start_button.set_tooltip_text("Run the code");
+        start_button.set_tooltip_text(_("Run the code"));
         start_button.clicked.connect (() => {
             fileManager.runCode();
         });
@@ -96,15 +96,15 @@ public class HeaderBar : Gtk.HeaderBar {
 
     private void generateCopyMenu(){
         copy_menu_button.has_tooltip = true;
-        copy_menu_button.tooltip_text = ("Copy input or output");
+        copy_menu_button.tooltip_text = (_("Copy input or output"));
         copy_menu_button.set_image (new Gtk.Image.from_icon_name ("edit-copy-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
         
-         var copy_input = new Gtk.MenuItem.with_label ("Copy Input");
+         var copy_input = new Gtk.MenuItem.with_label (_("Copy Input"));
         copy_input.activate.connect (() => {
             clipboard.set_text(sourceViewManager.getView().buffer.text, -1);
         });
 
-        var copy_output = new Gtk.MenuItem.with_label ("Copy Output");
+        var copy_output = new Gtk.MenuItem.with_label (_("Copy Output"));
         copy_output.activate.connect (() => {
             clipboard.set_text(sourceViewManager.getResult().buffer.text, -1);
         });
@@ -119,15 +119,15 @@ public class HeaderBar : Gtk.HeaderBar {
 
     private void generateSettingsMenu(){
         menu_button.has_tooltip = true;
-        menu_button.tooltip_text = ("Settings");
+        menu_button.tooltip_text = (_("Settings"));
         menu_button.set_image (new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
 
-        var cheatsheet = new Gtk.MenuItem.with_label ("Markdown Cheatsheet");
+        var cheatsheet = new Gtk.MenuItem.with_label (_("Markdown Cheatsheet"));
         cheatsheet.activate.connect (() => {
             new Cheatsheet();
         });
 
-        var preferences = new Gtk.MenuItem.with_label ("Preferences");
+        var preferences = new Gtk.MenuItem.with_label (_("Preferences"));
         preferences.activate.connect (() => {
             new Preferences();
         });
