@@ -18,6 +18,17 @@
     </ul>
   </description>
   <releases>
+    <release version="1.5.1" date="2017-11-29">
+      <description>
+        <p>Wrapping will now happen correctly</p>
+        <ul>
+          <li>Wrapping will now happen by CHAR so that those annoying scrollbars won't show up anymore</li>
+          <li>Updated alerts to granite5.0</li>
+          <li>Updated 'PHP not found' screen</li>
+          <li>Refactored lots of code</li>
+        </ul>
+      </description>
+   </release>
    <release version="1.5.0" date="2017-11-10">
       <description>
         <p>PHP version switching</p>

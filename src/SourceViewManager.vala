@@ -35,7 +35,7 @@ public class SourceViewManager : Object {
         }
 
         result = new Gtk.TextView ();
-        result.set_wrap_mode(Gtk.WrapMode.WORD);
+        result.set_wrap_mode(Gtk.WrapMode.CHAR);
         result.set_editable (false);
         result.set_left_margin (10);
         result.set_right_margin (10);
