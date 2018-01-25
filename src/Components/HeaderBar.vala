@@ -25,6 +25,12 @@ public class HeaderBar : Gtk.HeaderBar {
         Granite.Widgets.Utils.set_color_primary (this, Constants.BRAND_COLOR);
 
         generateVersionsDropdown();
+        
+        if(settings.get_string("php-version") == ""){
+            settings.set_string("php-version", phpVersionManager.getVersions()[0]);
+        }
+
+        getActiveDropdownIndexAndSet();
         generateStartButton();
         generateCopyMenu();
         generateSettingsMenu();
@@ -69,6 +75,14 @@ public class HeaderBar : Gtk.HeaderBar {
     void item_changed (Gtk.ComboBox combo) {
         settings.set_string("php-version", phpVersionManager.getVersions() [combo.get_active ()]);
 	}
+
+    private void getActiveDropdownIndexAndSet(){
+        for (int i = 0; i < phpVersionManager.getVersions().length; i++){
+		    if(phpVersionManager.getVersions()[i] == settings.get_string("php-version")){
+                combobox.set_active(i);
+            }
+	    }
+    }
 
     private void generateStartButton(){
         start_button.set_tooltip_text("Run the code");
