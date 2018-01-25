@@ -18,6 +18,14 @@
     </ul>
   </description>
   <releases>
+    <release version="1.5.2" date="2017-01-25">
+      <description>
+        <p>Fixed version bug</p>
+        <ul>
+          <li>Fixed a bug where the wrong version would be used</li>
+        </ul>
+      </description>
+   </release>
     <release version="1.5.1" date="2017-11-29">
       <description>
         <p>Wrapping will now happen correctly</p>

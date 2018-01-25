@@ -1,3 +1,9 @@
+com.github.bartzaalberg.php-tester (1.5.2) UNSTABLE; urgency=low
+
+  * Fixed a bug where the wrong version would be used
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Mon, 25 Jan 2018 17:42:00 +0200
+
 com.github.bartzaalberg.php-tester (1.5.1) UNSTABLE; urgency=low
 
   * Wrapping will now happen by CHAR so that those annoying scrollbars won't show up anymore
