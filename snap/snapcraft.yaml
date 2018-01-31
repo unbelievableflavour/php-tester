@@ -1,0 +1,95 @@
+name: php-tester
+version: '1.5.1'
+summary: A simple tool to run your PHP scribbles.
+description: |
+  A Vala application to test PHP snippets without having to start a server.
+
+grade: stable
+confinement: strict
+
+icon: com.github.bartzaalberg.php-tester.svg
+
+plugs:
+  elementary-platform-loki:
+    interface: content
+    target: $SNAP/gnome-platform
+    default-provider: elementary-platform-loki:elementary-platform-loki
+
+slots:
+  php-tester:
+    interface: dbus
+    bus: session
+    name: com.github.bartzaalberg.php-tester
+
+apps:
+  php-tester:
+    command: desktop-launch $SNAP/usr/bin/com.github.bartzaalberg.php-tester
+    plugs:
+      - x11
+      - desktop
+      - desktop-legacy
+      - wayland
+      - unity7
+      - home
+      - gsettings
+      - network
+    desktop: usr/share/applications/com.github.bartzaalberg.php-tester
+
+parts:
+  granite:
+    plugin: cmake
+    source: lp:granite/0.5
+    source-type: bzr
+    configflags: [-DCMAKE_BUILD_TYPE=Release, -DCMAKE_INSTALL_PREFIX=/usr, -DCMAKE_INSTALL_LIBDIR=/usr/lib]
+    build-packages:
+      - build-essential
+      - valac
+    stage-packages:
+      - valac-0.30-vapi
+  elementary:
+    plugin: nil
+    prepare: |
+      add-apt-repository -y ppa:elementary-os/stable
+      add-apt-repository -y ppa:elementary-os/os-patches
+      echo "Package: *" > /etc/apt/preferences.d/elementary-stable
+      echo "Pin: release o=LP-PPA-elementary-os-stable" >> /etc/apt/preferences.d/elementary-stable
+      echo "Pin-Priority: 1000" >> /etc/apt/preferences.d/elementary-stable
+      echo "Package: *" > /etc/apt/preferences.d/elementary-patches
+      echo "Pin: release o=LP-PPA-elementary-os-os-patches" >> /etc/apt/preferences.d/elementary-patches
+      echo "Pin-Priority: 1000" >> /etc/apt/preferences.d/elementary-patches
+      apt update
+      apt dist-upgrade -y
+  php-tester:
+    after: [granite, elementary, desktop-gtk3]
+    source: https://github.com/bartzaalberg/php-tester.git
+    plugin: cmake
+    configflags: [-DCMAKE_INSTALL_PREFIX=/usr]
+    build-packages:
+      - appstream
+      - desktop-file-utils
+      - build-essential
+      - gettext
+      - libgee-0.8-dev
+      - libgtk-3-dev
+      - valac
+      - libgranite-dev
+      - libjson-glib-dev
+      - libgudev-1.0-dev
+      - libevdev-dev
+      - cmake
+      - debhelper
+      - libgtksourceview-3.0-dev
+      - libxml2-dev
+      - libglib2.0-dev
+      - libgda-5.0-dev
+      - libmysqlclient-dev
+      - libpq-dev
+      - libgda-5.0-mysql
+      - libgda-5.0-postgres
+    install: |
+      cp data/com.github.bartzaalberg.php-tester.gschema.xml $SNAPCRAFT_PART_INSTALL/share/glib-2.0/schemas
+      glib-compile-schemas $SNAPCRAFT_PART_INSTALL/share/glib-2.0/schemas
+    prime:
+      - usr/share
+    organize:
+      share/glib-2.0: usr/share/glib-2.0
