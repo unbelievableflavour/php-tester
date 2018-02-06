@@ -3,10 +3,11 @@ using Granite.Widgets;
 namespace PhpTester {
 public class HeaderBar : Gtk.HeaderBar {
 
+    static HeaderBar? instance;
+
     private Settings settings = new Settings ("com.github.bartzaalberg.php-tester");
     private SourceViewManager sourceViewManager = SourceViewManager.get_instance();
     private FileManager fileManager = FileManager.get_instance();
-    private StackManager stackManager = StackManager.get_instance();
     private PhpVersionManager phpVersionManager = PhpVersionManager.get_instance();
 
     Gtk.Clipboard clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD);
@@ -21,7 +22,7 @@ public class HeaderBar : Gtk.HeaderBar {
 		VERSION
 	}
 
-    construct {
+    HeaderBar() {
         Granite.Widgets.Utils.set_color_primary (this, Constants.BRAND_COLOR);
 
         generateVersionsDropdown();
@@ -40,14 +41,16 @@ public class HeaderBar : Gtk.HeaderBar {
         this.pack_start (copy_menu_button);
         this.pack_end (menu_button);
         this.show_close_button = true;
-
-        if(phpVersionManager.noVersionsFound()){
-            disableAllButtons();
-            stackManager.getStack().visible_child_name = "no-php-found-view";
-        }
     }
 
-    private void disableAllButtons(){
+   public static HeaderBar get_instance() {
+        if (instance == null) {
+            instance = new HeaderBar();
+        }
+        return instance;
+    }
+
+    public void disableAllButtons(){
         combobox.set_sensitive(false);
         start_button.set_sensitive(false);
         copy_menu.set_sensitive(false);

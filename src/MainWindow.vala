@@ -7,14 +7,20 @@ public class MainWindow : Gtk.Window{
     private FileManager fileManager = FileManager.get_instance();
     private Gtk.Clipboard clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD);
     private StackManager stackManager = StackManager.get_instance();
+    private HeaderBar headerBar = HeaderBar.get_instance();
+    private PhpVersionManager phpVersionManager = PhpVersionManager.get_instance();
 
     construct {
         set_default_size(Constants.APPLICATION_WIDTH, Constants.APPLICATION_HEIGHT);
 
         stackManager.loadViews(this);
 
-        set_titlebar (new HeaderBar());
+        set_titlebar(headerBar);
 
+        if(phpVersionManager.noVersionsFound()){
+            stackManager.getStack().visible_child_name = "no-php-found-view";
+        }
+        
         addShortcuts();
     }
 

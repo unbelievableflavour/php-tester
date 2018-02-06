@@ -29,6 +29,14 @@ public class StackManager : Object {
         stack.add_named (new StandardView(), STANDARD_VIEW_ID);
         stack.add_named (new NoPhpFoundView(), NO_PHP_FOUND_VIEW_ID);
 
+        stack.notify["visible-child"].connect (() => {
+            var headerBar = HeaderBar.get_instance();
+
+            if(stack.get_visible_child_name() == NO_PHP_FOUND_VIEW_ID){
+                headerBar.disableAllButtons();
+            }
+        });
+
         window.add(stack);
         window.show_all();
    }

@@ -2,8 +2,6 @@ namespace PhpTester {
 public class PhpVersionManager : Object {
     
     static PhpVersionManager? instance;
-
-    private Gtk.Stack stack;
     string[] phpVersions = {};
 
     // Private constructor
@@ -26,7 +24,6 @@ public class PhpVersionManager : Object {
             string? name = null;
             while ((name = dir.read_name ()) != null) {
                 string path = Path.build_filename (directory, name);
-                string type = "";
 
                 if (!(FileUtils.test (path, FileTest.IS_EXECUTABLE))) {
                     continue;
