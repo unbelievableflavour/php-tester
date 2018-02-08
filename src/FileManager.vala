@@ -96,7 +96,7 @@ public class FileManager : Object {
             }
 	     
         } catch (SpawnError e) {
-            new Alert("An error occured", e.message);
+            new Alert(_("An error occured"), e.message);
         }
     }
 }

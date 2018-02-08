@@ -6,18 +6,18 @@ public class Preferences : Gtk.Dialog {
     private Gtk.ComboBoxText style_scheme;
 
     public Preferences(){
-        title = "Preferences";
+        title = _("Preferences");
         set_default_size (630, 430);
         resizable = false;
         deletable = false;
 
-        var general_header = new HeaderLabel ("Preferences");
+        var general_header = new HeaderLabel (_("Preferences"));
         
         style_scheme = new Gtk.ComboBoxText ();
         populate_style_scheme ();
         settings.bind ("style-scheme", style_scheme, "active-id", SettingsBindFlags.DEFAULT);
 
-        var use_custom_font_label = new Gtk.Label ("Custom font:");
+        var use_custom_font_label = new Gtk.Label (_("Custom font:"));
         var use_custom_font = new Gtk.Switch ();
             use_custom_font.halign = Gtk.Align.START;
             settings.bind ("use-system-font", use_custom_font, "active", SettingsBindFlags.INVERT_BOOLEAN);
@@ -27,15 +27,15 @@ public class Preferences : Gtk.Dialog {
             settings.bind ("font", select_font, "font-name", SettingsBindFlags.DEFAULT);
             settings.bind ("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
-        var themeLabel = new Gtk.Label ("Theme:");
+        var themeLabel = new Gtk.Label (_("Theme:"));
 
-        var close_button = new Gtk.Button.with_label ("Close");
+        var close_button = new Gtk.Button.with_label (_("Close"));
         close_button.margin_right = 6;
         close_button.clicked.connect (() => {
             this.destroy ();
         });
 
-        var save_button = new Gtk.Button.with_label ("Save");
+        var save_button = new Gtk.Button.with_label (_("Save"));
         save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
         save_button.clicked.connect (() => {
             settings.set_string("style-scheme", style_scheme.get_active_id());
