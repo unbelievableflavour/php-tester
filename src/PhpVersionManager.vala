@@ -35,6 +35,10 @@ public class PhpVersionManager : Object {
 
                 if((name.substring (0, 3) != "php")){
                     continue;                    
+                }                
+
+                if(!fourthCharIsNumber(name)){
+                    continue;
                 }
 
                 string shortString = name.substring (-3);
@@ -56,6 +60,21 @@ public class PhpVersionManager : Object {
 
     public bool noVersionsFound() {
         return getVersions().length == 0;
+    }
+
+    public bool fourthCharIsNumber(string name){
+
+        if(name.length < 4){
+            return false;
+        }
+
+        var fourthChar = name.substring (3, 1);
+                
+        if( int.parse (fourthChar) == 0){
+            return false;                
+        }
+
+        return true;
     }
 }
 }
