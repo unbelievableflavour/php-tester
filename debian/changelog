@@ -1,3 +1,10 @@
+com.github.bartzaalberg.php-tester (1.5.3) UNSTABLE; urgency=low
+
+  * Fixed a bug other applications than php would be shown
+  * Refactored code
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Thu, 08 Feb 2018 19:45:00 +0200
+
 com.github.bartzaalberg.php-tester (1.5.2) UNSTABLE; urgency=low
 
   * Fixed a bug where the wrong version would be used

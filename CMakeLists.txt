@@ -15,7 +15,7 @@
     set (PKGDATADIR "${DATADIR}/com.github.bartzaalberg.php-tester")
 
     set (EXEC_NAME "com.github.bartzaalberg.php-tester")
-    set (VERSION "1.5.2")
+    set (VERSION "1.5.3")
     set (VERSION_INFO "whats up world")
 
     set (DEPS_PACKAGES

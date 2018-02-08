@@ -18,7 +18,16 @@
     </ul>
   </description>
   <releases>
-    <release version="1.5.2" date="2017-01-25">
+    <release version="1.5.3" date="2018-02-08">
+      <description>
+        <p>Fixed bug where other applications than php where shown</p>
+        <ul>
+          <li>Fixed a bug other applications than php would be shown</li>
+          <li>Refactored code</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.5.2" date="2018-01-25">
       <description>
         <p>Fixed version bug</p>
         <ul>
