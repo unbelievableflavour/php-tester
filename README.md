@@ -19,7 +19,7 @@ A Vala application to test PHP snippets without having to start a server.
 
 ## Installation
 
-As first you need elementary SDK
+First you will need to install elementary SDK
 
  `sudo apt install elementary-sdk`
 
