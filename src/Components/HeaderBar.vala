@@ -23,7 +23,7 @@ public class HeaderBar : Gtk.HeaderBar {
 	}
 
     HeaderBar() {
-        Granite.Widgets.Utils.set_color_primary (this, Constants.BRAND_COLOR);
+        //Utils.set_color_primary (this, Constants.BRAND_COLOR);
 
         generateVersionsDropdown();
         

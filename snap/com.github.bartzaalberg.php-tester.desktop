@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=PHP Tester
+GenericName=PHP Tester
+Comment=Application to test php code
+Categories=Utility;Development;Education;
+Exec=com.github.bartzaalberg.php-tester
+Icon=${SNAP}/meta/com.github.bartzaalberg.php-tester.svg
+Terminal=false
+Type=Application
+X-GNOME-Gettext-Domain=php-tester
+Keywords=GUI;PHP;Development;
+
