@@ -39,8 +39,8 @@ msgid "No PHP versions found"
 msgstr "Er is geen versie van PHP gevonden"
 
 #: ../src/Views/NoPhpFoundView.vala:7
-msgid "Please install a versions of PHP and try again."
-msgstr "Installeer een versie van PHP en probeer het opnieuw."
+msgid "Please install a versions of PHP and restart the application."
+msgstr "Installeer een versie van PHP en herstart de applicatie."
 
 #: ../src/SourceViewManager.vala:44
 msgid "Result will show up here"
