@@ -47,6 +47,11 @@ public class MainWindow : Gtk.Window{
                     clipboard.set_text(sourceViewManager.getResult().buffer.text, -1);
                   } 
                   break; 
+                case Gdk.Key.q:
+                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {  
+                    Gtk.main_quit();
+                  }
+                  break;
             } 
  
             return false; 
