@@ -18,6 +18,16 @@
     </ul>
   </description>
   <releases>
+    <release version="1.5.4" date="2018-05-27">
+      <description>
+        <p>Added Brazilian translation and a new shortcut</p>
+        <ul>
+          <li>Added Brazilian translation</li>
+          <li>Added shortcut for quitting</li>
+          <li>Changed text for when PHP is not found</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.5.3" date="2018-02-08">
       <description>
         <p>Fixed bug where other applications than php where shown</p>

@@ -1,3 +1,11 @@
+com.github.bartzaalberg.php-tester (1.5.4) UNSTABLE; urgency=low
+
+  * Added Brazilian translation
+  * Added shortcut for quitting
+  * Changed text for when PHP is not found
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Sun, 27 May 2018 10:54:00 +0200
+
 com.github.bartzaalberg.php-tester (1.5.3) UNSTABLE; urgency=low
 
   * Fixed a bug other applications than php would be shown
