@@ -18,6 +18,14 @@
     </ul>
   </description>
   <releases>
+    <release version="1.5.5" date="2018-09-21">
+      <description>
+        <p>Updated release for Juno</p>
+        <ul>
+          <li>Added Houston CI</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.5.4" date="2018-05-27">
       <description>
         <p>Added Brazilian translation and a new shortcut</p>

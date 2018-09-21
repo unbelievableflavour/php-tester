@@ -1,3 +1,9 @@
+com.github.bartzaalberg.lottery (1.5.5) STABLE; urgency=low
+
+  * Added Houston CI
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Sun, 21 Sep 2018 11:51:00 +0200
+
 com.github.bartzaalberg.php-tester (1.5.4) UNSTABLE; urgency=low
 
   * Added Brazilian translation

@@ -15,7 +15,7 @@
     set (PKGDATADIR "${DATADIR}/com.github.bartzaalberg.php-tester")
 
     set (EXEC_NAME "com.github.bartzaalberg.php-tester")
-    set (VERSION "1.5.4")
+    set (VERSION "1.5.5")
     set (VERSION_INFO "whats up world")
 
     set (DEPS_PACKAGES
@@ -46,7 +46,7 @@
     add_subdirectory (po)
 
     #------------------------------------------------------------------------------------------
-    
+
     # files we want to compile
     include(ValaPrecompile)
     vala_precompile(VALA_C ${EXEC_NAME}

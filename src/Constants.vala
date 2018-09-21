@@ -6,8 +6,8 @@ namespace PhpTester.Constants {
     public const string ICON = "com.github.bartzaalberg.php-tester";
     public const string MAIN_URL = "https://github.com/bartzaalberg/php-tester";
     public const string BUG_URL = MAIN_URL + "/issues";
-    public const string VERSION = "1.5.4";
-    public const string VERSION_INFO = "Unstable";
+    public const string VERSION = "1.5.5";
+    public const string VERSION_INFO = "Stable";
     public const string APP_YEARS = "2017-2018";
     public const int APPLICATION_WIDTH = 700;
     public const int APPLICATION_HEIGHT = 500;
