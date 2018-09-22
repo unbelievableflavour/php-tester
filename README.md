@@ -37,12 +37,10 @@ These dependencies must be present before building
 
 ### Building
 ```
-mkdir build
+meson build --prefix=/usr
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr ../
-make pot
-make
+ninja
 ```
 
 ### Installing
-`sudo make install`
+`sudo ninja install`
