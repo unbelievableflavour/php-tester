@@ -18,6 +18,14 @@
     </ul>
   </description>
   <releases>
+    <release version="1.5.6" date="2018-09-22">
+      <description>
+        <p>Updated build system</p>
+        <ul>
+          <li>Migrated from Cmake to Meson</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.5.5" date="2018-09-21">
       <description>
         <p>Updated release for Juno</p>
