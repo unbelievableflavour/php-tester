@@ -18,8 +18,13 @@
 	</key>
 	<key name="php-version" type="s">
 		<default>''</default>
-		<summary>The php version you are using</summary>
-		<description>Set the preferred php version.</description>
+		<summary>The PHP version you are using</summary>
+		<description>Set the preferred PHP version.</description>
+	</key>
+	<key name="php-path" type="s">
+		<default>'/usr/bin'</default>
+		<summary>The PHP path</summary>
+		<description>This path is used to search for PHP. If this path is wrong the application wont be able to operate</description>
 	</key>
 
   </schema>

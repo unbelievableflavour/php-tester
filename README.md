@@ -44,3 +44,6 @@ ninja
 
 ### Installing
 `sudo ninja install`
+
+### Recompile the schema after installation
+`sudo glib-compile-schemas /usr/share/glib-2.0/schemas`

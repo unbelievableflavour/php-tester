@@ -2,6 +2,7 @@ namespace PhpTester {
 public class PhpVersionManager : Object {
     
     static PhpVersionManager? instance;
+    private Settings settings = new Settings ("com.github.bartzaalberg.php-tester");
     string[] phpVersions = {};
 
     // Private constructor
@@ -19,7 +20,13 @@ public class PhpVersionManager : Object {
 
     private void getPhpVersions(){
         try {
-            string directory = "/usr/bin";
+            string directory = settings.get_string("php-path");
+
+            if(directory == ""){
+                directory = "/usr/bin";
+                settings.set_string("php-path", directory);
+            }
+
             Dir dir = Dir.open (directory, 0);
             string? name = null;
             while ((name = dir.read_name ()) != null) {
