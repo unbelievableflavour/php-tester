@@ -33,7 +33,7 @@ public class StackManager : Object {
             var headerBar = HeaderBar.get_instance();
 
             if(stack.get_visible_child_name() == NO_PHP_FOUND_VIEW_ID){
-                headerBar.disableAllButtons();
+                headerBar.disableAllButtonsExceptOptions();
             }
         });
 

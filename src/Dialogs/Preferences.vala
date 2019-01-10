@@ -29,6 +29,13 @@ public class Preferences : Gtk.Dialog {
 
         var themeLabel = new Gtk.Label (_("Theme:"));
 
+        var phpPathLabel = new Gtk.Label (_("PHP path:"));
+        var phpPathEntry = new Gtk.Entry ();
+        phpPathEntry.set_text (settings.get_string ("php-path"));
+        phpPathEntry.set_tooltip_text (_("This path will be used to find php"));
+
+        var restartNoteLabel = new Gtk.Label (_("You need to restart after changing the PHP path"));
+
         var close_button = new Gtk.Button.with_label (_("Close"));
         close_button.margin_right = 6;
         close_button.clicked.connect (() => {
@@ -40,7 +47,13 @@ public class Preferences : Gtk.Dialog {
         save_button.clicked.connect (() => {
             settings.set_string("style-scheme", style_scheme.get_active_id());
             sourceViewManager.setTheme(settings.get_string ("style-scheme"));
-            sourceViewManager.setFont(settings.get_string ("font"));            
+            sourceViewManager.setFont(settings.get_string ("font"));
+
+            if(phpPathEntry.text ==  "") {
+                settings.set_string ("php-path", "/usr/bin");
+            } else {
+                settings.set_string("php-path", phpPathEntry.text);
+            }
 
             this.destroy ();
         });
@@ -63,6 +76,9 @@ public class Preferences : Gtk.Dialog {
         general_grid.attach (use_custom_font_label, 0, 2, 1, 1);
         general_grid.attach (use_custom_font, 1, 2, 1, 1);
         general_grid.attach (select_font, 2, 2, 1, 1);
+        general_grid.attach (phpPathLabel, 0, 3, 1, 1);
+        general_grid.attach (phpPathEntry, 1, 3, 1, 1);
+        general_grid.attach (restartNoteLabel, 1, 4, 1, 1);
     
         var main_grid = new Gtk.Grid ();
         main_grid.attach (general_grid, 0, 0, 1, 1);

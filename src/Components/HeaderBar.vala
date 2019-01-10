@@ -27,7 +27,7 @@ public class HeaderBar : Gtk.HeaderBar {
 
         generateVersionsDropdown();
         
-        if(settings.get_string("php-version") == ""){
+        if(settings.get_string("php-version") == "" && phpVersionManager.getVersions().length != 0){
             settings.set_string("php-version", phpVersionManager.getVersions()[0]);
         }
 
@@ -50,11 +50,10 @@ public class HeaderBar : Gtk.HeaderBar {
         return instance;
     }
 
-    public void disableAllButtons(){
+    public void disableAllButtonsExceptOptions(){
         combobox.set_sensitive(false);
         start_button.set_sensitive(false);
         copy_menu.set_sensitive(false);
-        settings_menu.set_sensitive(false);    
     }
 
     private void generateVersionsDropdown(){
