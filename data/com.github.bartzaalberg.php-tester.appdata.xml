@@ -18,6 +18,15 @@
     </ul>
   </description>
   <releases>
+    <release version="1.6.1" date="2019-01-11">
+      <description>
+        <p>Bug fixes, expanded php</p>
+        <ul>
+          <li>PHP can now be found if executable doesnt contain version</li>
+          <li>Fixed stuck in copy paste menu when no php is found</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.6.0" date="2019-01-10">
       <description>
         <p>Added PHP path option</p>
