@@ -44,16 +44,17 @@ public class PhpVersionManager : Object {
                     continue;                    
                 }                
 
-                if(!fourthCharIsNumber(name)){
+                if(name != "php" && !fourthCharIsNumber(name)){
                     continue;
                 }
 
                 string shortString = name.substring (-3);
                 int number = int.parse(shortString);
 
-                if(number == 0){
+                if(name != "php" && number == 0){
                     continue;
                 }
+
                 phpVersions += name;
             }
         } catch (FileError err) {
