@@ -53,7 +53,7 @@ public class HeaderBar : Gtk.HeaderBar {
     public void disableAllButtonsExceptOptions(){
         combobox.set_sensitive(false);
         start_button.set_sensitive(false);
-        copy_menu.set_sensitive(false);
+        copy_menu_button.popup = null;
     }
 
     private void generateVersionsDropdown(){
