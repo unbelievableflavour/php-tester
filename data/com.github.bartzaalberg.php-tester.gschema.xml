@@ -1,5 +1,5 @@
 <schemalist>
-  <schema id="com.github.bartzaalberg.php-tester" path="/org/example/my-app/" gettext-domain="my-app">
+  <schema id="com.github.bartzaalberg.php-tester" path="/com/github/bartzaalberg/php-tester/" gettext-domain="my-app">
 
    <key name="style-scheme" type="s">
 		<default>'classic'</default>
