@@ -10,9 +10,14 @@ public class MainWindow : Gtk.Window{
     private HeaderBar headerBar = HeaderBar.get_instance();
     private PhpVersionManager phpVersionManager = PhpVersionManager.get_instance();
 
-    construct {
-        set_default_size(Constants.APPLICATION_WIDTH, Constants.APPLICATION_HEIGHT);
+    public MainWindow (Gtk.Application application) {
+        Object (application: application,
+                resizable: true,
+                height_request: Constants.APPLICATION_HEIGHT,
+                width_request: Constants.APPLICATION_WIDTH);
+    }
 
+    construct {
         stackManager.loadViews(this);
 
         set_titlebar(headerBar);
@@ -20,42 +25,42 @@ public class MainWindow : Gtk.Window{
         if(phpVersionManager.noVersionsFound()){
             stackManager.getStack().visible_child_name = "no-php-found-view";
         }
-        
+
         addShortcuts();
     }
 
     private void addShortcuts(){
-        key_press_event.connect ((e) => { 
-            switch (e.keyval) { 
-                case Gdk.Key.r:    
-                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {  
-                    fileManager.runCode(); 
-                  } 
-                  break;
-                case Gdk.Key.h:    
-                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {  
-                    new Cheatsheet(); 
-                  } 
-                  break;
-                case Gdk.Key.i:    
-                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {  
-                    clipboard.set_text(sourceViewManager.getView().buffer.text, -1);
-                  } 
-                  break; 
-                case Gdk.Key.o:    
-                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {  
-                    clipboard.set_text(sourceViewManager.getResult().buffer.text, -1);
-                  } 
-                  break; 
-                case Gdk.Key.q:
-                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {  
-                    Gtk.main_quit();
+        key_press_event.connect ((e) => {
+            switch (e.keyval) {
+                case Gdk.Key.r:
+                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                    fileManager.runCode();
                   }
                   break;
-            } 
- 
-            return false; 
-        });            
+                case Gdk.Key.h:
+                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                    new Cheatsheet();
+                  }
+                  break;
+                case Gdk.Key.i:
+                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                    clipboard.set_text(sourceViewManager.getView().buffer.text, -1);
+                  }
+                  break;
+                case Gdk.Key.o:
+                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                    clipboard.set_text(sourceViewManager.getResult().buffer.text, -1);
+                  }
+                  break;
+                case Gdk.Key.q:
+                  if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
+                    this.destroy();
+                  }
+                  break;
+            }
+
+            return false;
+        });
     }
 }
 }
