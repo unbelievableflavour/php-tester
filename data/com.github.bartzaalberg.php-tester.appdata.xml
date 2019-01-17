@@ -18,6 +18,14 @@
     </ul>
   </description>
   <releases>
+    <release version="1.6.2" date="2019-01-17">
+      <description>
+          <p>Added French translation</p>
+          <ul>
+              <li>The application is now available in French thanks to NathanBnm!</li>
+          </ul>
+      </description>
+    </release>
     <release version="1.6.1" date="2019-01-11">
       <description>
         <p>Bug fixes, expanded php</p>

@@ -1,3 +1,9 @@
+com.github.bartzaalberg.lottery (1.6.2) STABLE; urgency=low
+
+  * Added French translation
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Thu, 17 Jan 2019 14:07:00 +0200
+
 com.github.bartzaalberg.lottery (1.6.1) STABLE; urgency=low
 
   * PHP can now be found if executable doesnt contain version
