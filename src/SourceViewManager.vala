@@ -26,7 +26,7 @@ public class SourceViewManager : Object {
 
             view = new Gtk.SourceView ();
             view.set_show_line_numbers (true);
-            view.set_left_margin (10);
+            view.set_margin_start (10);
             view.buffer = buffer;
 
             set_font (settings.get_string ("font"));

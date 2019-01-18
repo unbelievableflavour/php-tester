@@ -12,6 +12,7 @@ public class MainWindow : Gtk.Window {
 
     public MainWindow (Gtk.Application application) {
         Object (application: application,
+                icon_name: Constants.APPLICATION_NAME,
                 resizable: true,
                 height_request: Constants.APPLICATION_HEIGHT,
                 width_request: Constants.APPLICATION_WIDTH);

@@ -24,7 +24,7 @@ public class Cheatsheet : Gtk.Dialog {
         shortcuts += generate_entry ("ctrl + h");
 
         var close_button = new Gtk.Button.with_label (_("Close"));
-        close_button.margin_right = 6;
+        close_button.set_margin_end (6);
         close_button.clicked.connect (() => {
             this.destroy ();
         });
