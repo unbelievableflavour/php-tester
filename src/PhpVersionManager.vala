@@ -1,30 +1,28 @@
 namespace PhpTester {
 public class PhpVersionManager : Object {
-    
+
     static PhpVersionManager? instance;
     private Settings settings = new Settings ("com.github.bartzaalberg.php-tester");
-    string[] phpVersions = {};
+    string[] php_versions = {};
 
-    // Private constructor
-    PhpVersionManager() {
-        getPhpVersions();
+    PhpVersionManager () {
+        get_php_versions ();
     }
- 
-    // Public constructor
-    public static PhpVersionManager get_instance() {
+
+    public static PhpVersionManager get_instance () {
         if (instance == null) {
-            instance = new PhpVersionManager();
+            instance = new PhpVersionManager ();
         }
         return instance;
     }
 
-    private void getPhpVersions(){
+    private void get_php_versions () {
         try {
-            string directory = settings.get_string("php-path");
+            string directory = settings.get_string ("php-path");
 
-            if(directory == ""){
+            if (directory == "") {
                 directory = "/usr/bin";
-                settings.set_string("php-path", directory);
+                settings.set_string ("php-path", directory);
             }
 
             Dir dir = Dir.open (directory, 0);
@@ -36,50 +34,50 @@ public class PhpVersionManager : Object {
                     continue;
                 }
 
-                if(!("php" in name)) {
+                if (!("php" in name)) {
                     continue;
                 }
 
-                if((name.substring (0, 3) != "php")){
-                    continue;                    
-                }                
-
-                if(name != "php" && !fourthCharIsNumber(name)){
+                if ((name.substring (0, 3) != "php")) {
                     continue;
                 }
 
-                string shortString = name.substring (-3);
-                int number = int.parse(shortString);
-
-                if(name != "php" && number == 0){
+                if (name != "php" && !fourth_char_is_number (name)) {
                     continue;
                 }
 
-                phpVersions += name;
+                string short_string = name.substring (-3);
+                int number = int.parse (short_string);
+
+                if (name != "php" && number == 0) {
+                    continue;
+                }
+
+                php_versions += name;
             }
         } catch (FileError err) {
             stderr.printf (err.message);
         }
     }
 
-    public string[] getVersions() {
-        return this.phpVersions;
+    public string[] get_versions () {
+        return this.php_versions;
     }
 
-    public bool noVersionsFound() {
-        return getVersions().length == 0;
+    public bool no_versions_found () {
+        return get_versions ().length == 0;
     }
 
-    public bool fourthCharIsNumber(string name){
+    public bool fourth_char_is_number (string name) {
 
-        if(name.length < 4){
+        if (name.length < 4) {
             return false;
         }
 
-        var fourthChar = name.substring (3, 1);
-                
-        if( int.parse (fourthChar) == 0){
-            return false;                
+        var fourth_char = name.substring (3, 1);
+
+        if ( int.parse (fourth_char) == 0) {
+            return false;
         }
 
         return true;

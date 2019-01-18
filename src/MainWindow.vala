@@ -1,14 +1,14 @@
 using Granite.Widgets;
 
 namespace PhpTester {
-public class MainWindow : Gtk.Window{
+public class MainWindow : Gtk.Window {
 
-    private SourceViewManager sourceViewManager = SourceViewManager.get_instance();
-    private FileManager fileManager = FileManager.get_instance();
-    private Gtk.Clipboard clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD);
-    private StackManager stackManager = StackManager.get_instance();
-    private HeaderBar headerBar = HeaderBar.get_instance();
-    private PhpVersionManager phpVersionManager = PhpVersionManager.get_instance();
+    private SourceViewManager source_view_manager = SourceViewManager.get_instance ();
+    private FileManager file_manager = FileManager.get_instance ();
+    private Gtk.Clipboard clipboard = Gtk.Clipboard.get (Gdk.SELECTION_CLIPBOARD);
+    private StackManager stack_manager = StackManager.get_instance ();
+    private HeaderBar header_bar = HeaderBar.get_instance ();
+    private PhpVersionManager php_version_manager = PhpVersionManager.get_instance ();
 
     public MainWindow (Gtk.Application application) {
         Object (application: application,
@@ -18,43 +18,43 @@ public class MainWindow : Gtk.Window{
     }
 
     construct {
-        stackManager.loadViews(this);
+        stack_manager.load_views (this);
 
-        set_titlebar(headerBar);
+        set_titlebar (header_bar);
 
-        if(phpVersionManager.noVersionsFound()){
-            stackManager.getStack().visible_child_name = "no-php-found-view";
+        if (php_version_manager.no_versions_found ()) {
+            stack_manager.get_stack ().visible_child_name = "no-php-found-view";
         }
 
-        addShortcuts();
+        add_shortcuts ();
     }
 
-    private void addShortcuts(){
+    private void add_shortcuts () {
         key_press_event.connect ((e) => {
             switch (e.keyval) {
                 case Gdk.Key.r:
                   if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-                    fileManager.runCode();
+                    file_manager.run_code ();
                   }
                   break;
                 case Gdk.Key.h:
                   if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-                    new Cheatsheet();
+                    new Cheatsheet ();
                   }
                   break;
                 case Gdk.Key.i:
                   if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-                    clipboard.set_text(sourceViewManager.getView().buffer.text, -1);
+                    clipboard.set_text (source_view_manager.get_view ().buffer.text, -1);
                   }
                   break;
                 case Gdk.Key.o:
                   if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-                    clipboard.set_text(sourceViewManager.getResult().buffer.text, -1);
+                    clipboard.set_text (source_view_manager.get_result ().buffer.text, -1);
                   }
                   break;
                 case Gdk.Key.q:
                   if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-                    this.destroy();
+                    this.destroy ();
                   }
                   break;
             }

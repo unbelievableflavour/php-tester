@@ -1,7 +1,7 @@
 using Granite.Widgets;
 
 namespace PhpTester {
-public class App:Granite.Application{
+public class App:Granite.Application {
 
     public static MainWindow window = null;
 

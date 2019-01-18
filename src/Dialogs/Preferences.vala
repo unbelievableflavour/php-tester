@@ -1,18 +1,18 @@
 namespace PhpTester {
 public class Preferences : Gtk.Dialog {
-  
+
     private Settings settings = new Settings ("com.github.bartzaalberg.php-tester");
-    SourceViewManager sourceViewManager = SourceViewManager.get_instance();
+    SourceViewManager source_view_manager = SourceViewManager.get_instance ();
     private Gtk.ComboBoxText style_scheme;
 
-    public Preferences(){
+    public Preferences () {
         title = _("Preferences");
         set_default_size (630, 430);
         resizable = false;
         deletable = false;
 
         var general_header = new HeaderLabel (_("Preferences"));
-        
+
         style_scheme = new Gtk.ComboBoxText ();
         populate_style_scheme ();
         settings.bind ("style-scheme", style_scheme, "active-id", SettingsBindFlags.DEFAULT);
@@ -27,12 +27,12 @@ public class Preferences : Gtk.Dialog {
             settings.bind ("font", select_font, "font-name", SettingsBindFlags.DEFAULT);
             settings.bind ("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
-        var themeLabel = new Gtk.Label (_("Theme:"));
+        var theme_label = new Gtk.Label (_("Theme:"));
 
-        var phpPathLabel = new Gtk.Label (_("PHP path:"));
-        var phpPathEntry = new Gtk.Entry ();
-        phpPathEntry.set_text (settings.get_string ("php-path"));
-        phpPathEntry.set_tooltip_text (_("This path will be used to find php"));
+        var php_path_label = new Gtk.Label (_("PHP path:"));
+        var php_path_entry = new Gtk.Entry ();
+        php_path_entry.set_text (settings.get_string ("php-path"));
+        php_path_entry.set_tooltip_text (_("This path will be used to find php"));
 
         var restartNoteLabel = new Gtk.Label (_("You need to restart after changing the PHP path"));
 
@@ -45,14 +45,14 @@ public class Preferences : Gtk.Dialog {
         var save_button = new Gtk.Button.with_label (_("Save"));
         save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
         save_button.clicked.connect (() => {
-            settings.set_string("style-scheme", style_scheme.get_active_id());
-            sourceViewManager.setTheme(settings.get_string ("style-scheme"));
-            sourceViewManager.setFont(settings.get_string ("font"));
+            settings.set_string ("style-scheme", style_scheme.get_active_id ());
+            source_view_manager.set_theme (settings.get_string ("style-scheme"));
+            source_view_manager.set_font (settings.get_string ("font"));
 
-            if(phpPathEntry.text ==  "") {
+            if (php_path_entry.text == "") {
                 settings.set_string ("php-path", "/usr/bin");
             } else {
-                settings.set_string("php-path", phpPathEntry.text);
+                settings.set_string ("php-path", php_path_entry.text);
             }
 
             this.destroy ();
@@ -71,19 +71,19 @@ public class Preferences : Gtk.Dialog {
         general_grid.margin = 12;
         general_grid.attach (general_header, 0, 0, 2, 1);
 
-        general_grid.attach (themeLabel, 0, 1, 1, 1);
+        general_grid.attach (theme_label, 0, 1, 1, 1);
         general_grid.attach (style_scheme, 1, 1, 2, 1);
         general_grid.attach (use_custom_font_label, 0, 2, 1, 1);
         general_grid.attach (use_custom_font, 1, 2, 1, 1);
         general_grid.attach (select_font, 2, 2, 1, 1);
-        general_grid.attach (phpPathLabel, 0, 3, 1, 1);
-        general_grid.attach (phpPathEntry, 1, 3, 1, 1);
+        general_grid.attach (php_path_label, 0, 3, 1, 1);
+        general_grid.attach (php_path_entry, 1, 3, 1, 1);
         general_grid.attach (restartNoteLabel, 1, 4, 1, 1);
-    
+
         var main_grid = new Gtk.Grid ();
         main_grid.attach (general_grid, 0, 0, 1, 1);
         main_grid.attach (button_box, 0, 1, 1, 1);
-        
+
         ((Gtk.Container) get_content_area ()).add (main_grid);
         this.show_all ();
     }
