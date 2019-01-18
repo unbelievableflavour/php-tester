@@ -29,7 +29,7 @@ public class FileManager : Object {
                 dos.put_string (source_view_manager.get_view ().buffer.text, null);
             }
         } catch (Error e) {
-            new Alert ("An error Occurred", e.message);
+            new Alert (_("An error occurred"), e.message);
         }
     }
 
@@ -95,7 +95,7 @@ public class FileManager : Object {
             }
 
         } catch (SpawnError e) {
-            new Alert (_("An error occured"), e.message);
+            new Alert (_("An error occurred"), e.message);
         }
     }
 }

@@ -79,5 +79,5 @@ msgid "Save"
 msgstr "Opslaan"
 
 #: ../src/FileManager.vala:99
-msgid "An error occured"
+msgid "An error occurred"
 msgstr "Er is een fout opgetreden"

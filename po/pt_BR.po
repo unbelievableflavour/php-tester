@@ -92,5 +92,5 @@ msgid "Save"
 msgstr "Salvar"
 
 #: ../src/FileManager.vala:99
-msgid "An error occured"
+msgid "An error occurred"
 msgstr "Houve um erro"
