@@ -47,6 +47,5 @@ install_data(
     install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
-
 python3 = import('python3').find_python()
 run_command(python3, '-c', 'import shutil; shutil.copy("hooks/pre-commit.hook", ".git/hooks/pre-commit")')
