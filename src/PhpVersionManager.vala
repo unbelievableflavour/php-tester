@@ -55,9 +55,24 @@ public class PhpVersionManager : Object {
 
                 php_versions += name;
             }
+
+            if ( !current_saved_version_is_available ()) {
+                settings.set_string ("php-version", php_versions[0]);
+            }
+
         } catch (FileError err) {
             stderr.printf (err.message);
         }
+    }
+
+    public bool current_saved_version_is_available () {
+        if (no_versions_found ()) {
+            return false;
+        }
+        if (!(settings.get_string ("php-version") in php_versions)) {
+            return true;
+        }
+        return true;
     }
 
     public string[] get_versions () {
