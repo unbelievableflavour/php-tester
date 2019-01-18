@@ -6,106 +6,106 @@ public class HeaderBar : Gtk.HeaderBar {
     static HeaderBar? instance;
 
     private Settings settings = new Settings ("com.github.bartzaalberg.php-tester");
-    private SourceViewManager sourceViewManager = SourceViewManager.get_instance();
-    private FileManager fileManager = FileManager.get_instance();
-    private PhpVersionManager phpVersionManager = PhpVersionManager.get_instance();
+    private SourceViewManager source_view_manager = SourceViewManager.get_instance ();
+    private FileManager file_manager = FileManager.get_instance ();
+    private PhpVersionManager php_version_manager = PhpVersionManager.get_instance ();
 
-    Gtk.Clipboard clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD);
+    Gtk.Clipboard clipboard = Gtk.Clipboard.get (Gdk.SELECTION_CLIPBOARD);
     Gtk.Button start_button = new Gtk.Button.from_icon_name ("media-playback-start-symbolic");
     Gtk.MenuButton copy_menu_button = new Gtk.MenuButton ();
     Gtk.Menu copy_menu = new Gtk.Menu ();
     Gtk.MenuButton menu_button = new Gtk.MenuButton ();
     Gtk.Menu settings_menu = new Gtk.Menu ();
-    Gtk.ComboBox combobox = new Gtk.ComboBox();
+    Gtk.ComboBox combo_box = new Gtk.ComboBox ();
 
     enum Column {
-		VERSION
-	}
+        VERSION
+    }
 
-    HeaderBar() {
-        //Utils.set_color_primary (this, Constants.BRAND_COLOR);
+    HeaderBar () {
+        Utils.set_color_primary (this, Constants.BRAND_COLOR);
 
-        generateVersionsDropdown();
-        
-        if(settings.get_string("php-version") == "" && phpVersionManager.getVersions().length != 0){
-            settings.set_string("php-version", phpVersionManager.getVersions()[0]);
+        generate_versions_dropdown ();
+
+        if (settings.get_string ("php-version") == "" && php_version_manager.get_versions ().length != 0) {
+            settings.set_string ("php-version", php_version_manager.get_versions ()[0]);
         }
 
-        getActiveDropdownIndexAndSet();
-        generateStartButton();
-        generateCopyMenu();
-        generateSettingsMenu();
+        get_active_dropdown_index_and_set ();
+        generate_start_button ();
+        generate_copy_menu ();
+        generate_settings_menu ();
 
-		this.add (combobox);
+        this.add (combo_box);
         this.pack_start (start_button);
         this.pack_start (copy_menu_button);
         this.pack_end (menu_button);
         this.show_close_button = true;
     }
 
-   public static HeaderBar get_instance() {
+    public static HeaderBar get_instance () {
         if (instance == null) {
-            instance = new HeaderBar();
+            instance = new HeaderBar ();
         }
         return instance;
     }
 
-    public void disableAllButtonsExceptOptions(){
-        combobox.set_sensitive(false);
-        start_button.set_sensitive(false);
+    public void disable_all_buttons_except_options () {
+        combo_box.set_sensitive (false);
+        start_button.set_sensitive (false);
         copy_menu_button.popup = null;
     }
 
-    private void generateVersionsDropdown(){
+    private void generate_versions_dropdown () {
         Gtk.ListStore liststore = new Gtk.ListStore (1, typeof (string));
 
-		for (int i = 0; i < phpVersionManager.getVersions().length; i++){
-			Gtk.TreeIter iter;
-			liststore.append (out iter);
-			liststore.set (iter, Column.VERSION, phpVersionManager.getVersions()[i]);
-		}
+        for (int i = 0; i < php_version_manager.get_versions ().length; i++) {
+            Gtk.TreeIter iter;
+            liststore.append (out iter);
+            liststore.set (iter, Column.VERSION, php_version_manager.get_versions ()[i]);
+        }
 
-		Gtk.CellRendererText cell = new Gtk.CellRendererText ();
+        Gtk.CellRendererText cell = new Gtk.CellRendererText ();
 
-        combobox.set_model (liststore);
-		combobox.pack_start (cell, false);
-		combobox.set_attributes (cell, "text", Column.VERSION);
-		combobox.set_active (0);
-		combobox.changed.connect (this.item_changed);
+        combo_box.set_model (liststore);
+        combo_box.pack_start (cell, false);
+        combo_box.set_attributes (cell, "text", Column.VERSION);
+        combo_box.set_active (0);
+        combo_box.changed.connect (this.item_changed);
     }
 
     void item_changed (Gtk.ComboBox combo) {
-        settings.set_string("php-version", phpVersionManager.getVersions() [combo.get_active ()]);
-	}
-
-    private void getActiveDropdownIndexAndSet(){
-        for (int i = 0; i < phpVersionManager.getVersions().length; i++){
-		    if(phpVersionManager.getVersions()[i] == settings.get_string("php-version")){
-                combobox.set_active(i);
-            }
-	    }
+        settings.set_string ("php-version", php_version_manager.get_versions () [combo.get_active ()]);
     }
 
-    private void generateStartButton(){
-        start_button.set_tooltip_text(_("Run the code"));
+    private void get_active_dropdown_index_and_set () {
+        for (int i = 0; i < php_version_manager.get_versions ().length; i++) {
+            if (php_version_manager.get_versions ()[i] == settings.get_string ("php-version")) {
+                combo_box.set_active (i);
+            }
+        }
+    }
+
+    private void generate_start_button () {
+        start_button.set_tooltip_text (_("Run the code"));
         start_button.clicked.connect (() => {
-            fileManager.runCode();
+            file_manager.run_code ();
         });
     }
 
-    private void generateCopyMenu(){
+    private void generate_copy_menu () {
         copy_menu_button.has_tooltip = true;
         copy_menu_button.tooltip_text = (_("Copy input or output"));
         copy_menu_button.set_image (new Gtk.Image.from_icon_name ("edit-copy-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
-        
+
          var copy_input = new Gtk.MenuItem.with_label (_("Copy Input"));
         copy_input.activate.connect (() => {
-            clipboard.set_text(sourceViewManager.getView().buffer.text, -1);
+            clipboard.set_text (source_view_manager.get_view ().buffer.text, -1);
         });
 
         var copy_output = new Gtk.MenuItem.with_label (_("Copy Output"));
         copy_output.activate.connect (() => {
-            clipboard.set_text(sourceViewManager.getResult().buffer.text, -1);
+            clipboard.set_text (source_view_manager.get_result ().buffer.text, -1);
         });
 
         copy_menu.add (copy_input);
@@ -116,19 +116,19 @@ public class HeaderBar : Gtk.HeaderBar {
         copy_menu_button.popup = copy_menu;
     }
 
-    private void generateSettingsMenu(){
+    private void generate_settings_menu () {
         menu_button.has_tooltip = true;
         menu_button.tooltip_text = (_("Settings"));
         menu_button.set_image (new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
 
         var cheatsheet = new Gtk.MenuItem.with_label (_("Markdown Cheatsheet"));
         cheatsheet.activate.connect (() => {
-            new Cheatsheet();
+            new Cheatsheet ();
         });
 
         var preferences = new Gtk.MenuItem.with_label (_("Preferences"));
         preferences.activate.connect (() => {
-            new Preferences();
+            new Preferences ();
         });
 
         settings_menu.add (cheatsheet);
