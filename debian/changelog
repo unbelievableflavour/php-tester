@@ -1,3 +1,9 @@
+com.github.bartzaalberg.lottery (1.6.3) STABLE; urgency=low
+
+  * Fixed crash on saved php version is not installed
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Thu, 22 Jan 2019 17:48:00 +0200
+
 com.github.bartzaalberg.lottery (1.6.2) STABLE; urgency=low
 
   * Added French translation
