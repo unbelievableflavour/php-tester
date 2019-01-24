@@ -36,7 +36,6 @@ public class StackManager : Object {
         });
 
         window.add (stack);
-        window.show_all ();
     }
 }
 }

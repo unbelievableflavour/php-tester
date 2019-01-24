@@ -8,7 +8,8 @@ public class MainWindow : Gtk.Window {
     private Gtk.Clipboard clipboard = Gtk.Clipboard.get (Gdk.SELECTION_CLIPBOARD);
     private StackManager stack_manager = StackManager.get_instance ();
     private HeaderBar header_bar = HeaderBar.get_instance ();
-    private PhpVersionManager php_version_manager = PhpVersionManager.get_instance ();
+
+    private uint configure_id;
 
     public MainWindow (Gtk.Application application) {
         Object (application: application,
@@ -20,13 +21,7 @@ public class MainWindow : Gtk.Window {
 
     construct {
         stack_manager.load_views (this);
-
         set_titlebar (header_bar);
-
-        if (php_version_manager.no_versions_found ()) {
-            stack_manager.get_stack ().visible_child_name = "no-php-found-view";
-        }
-
         add_shortcuts ();
     }
 
@@ -62,6 +57,36 @@ public class MainWindow : Gtk.Window {
 
             return false;
         });
+    }
+
+    public override bool configure_event (Gdk.EventConfigure event) {
+        var settings = new GLib.Settings (Constants.APPLICATION_NAME);
+
+        if (configure_id != 0) {
+            GLib.Source.remove (configure_id);
+        }
+
+        configure_id = Timeout.add (100, () => {
+            configure_id = 0;
+
+            if (is_maximized) {
+                settings.set_boolean ("window-maximized", true);
+            } else {
+                settings.set_boolean ("window-maximized", false);
+
+                Gdk.Rectangle rect;
+                get_allocation (out rect);
+                settings.set ("window-size", "(ii)", rect.width, rect.height);
+
+                int root_x, root_y;
+                get_position (out root_x, out root_y);
+                settings.set ("window-position", "(ii)", root_x, root_y);
+            }
+
+            return false;
+        });
+
+        return base.configure_event (event);
     }
 }
 }
