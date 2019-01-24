@@ -47,6 +47,16 @@
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
   <releases>
+    <release version="1.7.0" date="2019-01-24">
+      <description>
+          <p>Remember size, maximized, and position</p>
+          <ul>
+              <li>Fixed single-instancing</li>
+              <li>Fixed about appcenter shortcut</li>
+              <li>Remember size, maximized, and position</li>
+          </ul>
+      </description>
+    </release>
     <release version="1.6.3" date="2019-01-22">
       <description>
           <p>Fixed a crash</p>

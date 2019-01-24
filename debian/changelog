@@ -1,36 +1,44 @@
-com.github.bartzaalberg.lottery (1.6.3) STABLE; urgency=low
+com.github.bartzaalberg.php-tester (1.7.0) STABLE; urgency=low
+
+  * Fixed single-instancing
+  * Fixed about appcenter shortcut
+  * Remember size, maximized, and position
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Tue, 24 Jan 2019 17:13:00 +0200
+
+com.github.bartzaalberg.php-tester (1.6.3) STABLE; urgency=low
 
   * Fixed crash on saved php version is not installed
 
  -- Bart Zaalberg <bartzaalberg@gmail.com>  Thu, 22 Jan 2019 17:48:00 +0200
 
-com.github.bartzaalberg.lottery (1.6.2) STABLE; urgency=low
+com.github.bartzaalberg.php-tester (1.6.2) STABLE; urgency=low
 
   * Added French translation
 
  -- Bart Zaalberg <bartzaalberg@gmail.com>  Thu, 17 Jan 2019 14:07:00 +0200
 
-com.github.bartzaalberg.lottery (1.6.1) STABLE; urgency=low
+com.github.bartzaalberg.php-tester (1.6.1) STABLE; urgency=low
 
   * PHP can now be found if executable doesnt contain version
   * Fixed stuck in copy paste menu when no php is found
 
  -- Bart Zaalberg <bartzaalberg@gmail.com>  Fri, 11 Jan 2019 17:36:00 +0200
 
-com.github.bartzaalberg.lottery (1.6.0) STABLE; urgency=low
+com.github.bartzaalberg.php-tester (1.6.0) STABLE; urgency=low
 
   * Added ability to change the PHP path
   * Fixed a fatal error on startup when no PHP is found
 
  -- Bart Zaalberg <bartzaalberg@gmail.com>  Thu, 10 Jan 2019 22:31:00 +0200
 
-com.github.bartzaalberg.lottery (1.5.6) STABLE; urgency=low
+com.github.bartzaalberg.php-tester (1.5.6) STABLE; urgency=low
 
   * Migrated from Cmake to Meson
 
  -- Bart Zaalberg <bartzaalberg@gmail.com>  Sat, 22 Sep 2018 09:59:00 +0200
 
-com.github.bartzaalberg.lottery (1.5.5) STABLE; urgency=low
+com.github.bartzaalberg.php-tester (1.5.5) STABLE; urgency=low
 
   * Added Houston CI
 
