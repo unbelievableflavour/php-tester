@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the com.github.bartzaalberg.php-tester package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: com.github.bartzaalberg.php-tester\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-13 17:02+0100\n"
+"POT-Creation-Date: 2019-01-26 23:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,79 +17,91 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Components/HeaderBar.vala:74 ../src/Dialogs/Cheatsheet.vala:14
-msgid "Run the code"
-msgstr ""
-
-#: ../src/Components/HeaderBar.vala:82
-msgid "Copy input or output"
-msgstr ""
-
-#: ../src/Components/HeaderBar.vala:85
-msgid "Copy Input"
-msgstr ""
-
-#: ../src/Components/HeaderBar.vala:90
-msgid "Copy Output"
-msgstr ""
-
-#: ../src/Components/HeaderBar.vala:105
-msgid "Settings"
-msgstr ""
-
-#: ../src/Components/HeaderBar.vala:108
-msgid "Markdown Cheatsheet"
-msgstr ""
-
-#: ../src/Components/HeaderBar.vala:113 ../src/Dialogs/Preferences.vala:9
-#: ../src/Dialogs/Preferences.vala:14
-msgid "Preferences"
-msgstr ""
-
-#: ../src/Views/NoPhpFoundView.vala:7
-msgid "No PHP versions found"
-msgstr ""
-
-#: ../src/Views/NoPhpFoundView.vala:7
-msgid "Please install a versions of PHP and try again."
-msgstr ""
-
-#: ../src/SourceViewManager.vala:44
+#: src/SourceViewManager.vala:45
 msgid "Result will show up here"
 msgstr ""
 
-#: ../src/Dialogs/Cheatsheet.vala:4 ../src/Dialogs/Cheatsheet.vala:7
+#: src/FileManager.vala:32 src/FileManager.vala:98
+msgid "An error occurred"
+msgstr ""
+
+#: src/Dialogs/Cheatsheet.vala:4 src/Dialogs/Cheatsheet.vala:7
 msgid "Cheatsheet"
 msgstr ""
 
-#: ../src/Dialogs/Cheatsheet.vala:17
+#: src/Dialogs/Cheatsheet.vala:14 src/Components/HeaderBar.vala:90
+msgid "Run the code"
+msgstr ""
+
+#: src/Dialogs/Cheatsheet.vala:17
 msgid "Copy input"
 msgstr ""
 
-#: ../src/Dialogs/Cheatsheet.vala:20
+#: src/Dialogs/Cheatsheet.vala:20
 msgid "Copy output"
 msgstr ""
 
-#: ../src/Dialogs/Cheatsheet.vala:23
+#: src/Dialogs/Cheatsheet.vala:23
 msgid "Open the cheatsheet"
 msgstr ""
 
-#: ../src/Dialogs/Cheatsheet.vala:26 ../src/Dialogs/Preferences.vala:32
+#: src/Dialogs/Cheatsheet.vala:26 src/Dialogs/Preferences.vala:39
 msgid "Close"
 msgstr ""
 
-#: ../src/Dialogs/Preferences.vala:20
+#: src/Dialogs/Preferences.vala:9 src/Dialogs/Preferences.vala:14
+#: src/Components/HeaderBar.vala:129
+msgid "Preferences"
+msgstr ""
+
+#: src/Dialogs/Preferences.vala:20
 msgid "Custom font:"
 msgstr ""
 
-#: ../src/Dialogs/Preferences.vala:30
+#: src/Dialogs/Preferences.vala:30
 msgid "Theme:"
 msgstr ""
 
-#: ../src/Dialogs/Preferences.vala:38
+#: src/Dialogs/Preferences.vala:32
+msgid "PHP path:"
+msgstr ""
+
+#: src/Dialogs/Preferences.vala:35
+msgid "This path will be used to find php"
+msgstr ""
+
+#: src/Dialogs/Preferences.vala:37
+msgid "You need to restart after changing the PHP path"
+msgstr ""
+
+#: src/Dialogs/Preferences.vala:45
 msgid "Save"
 msgstr ""
 
-#: ../src/FileManager.vala:99
-msgid "An error occurred"
+#: src/Components/HeaderBar.vala:98
+msgid "Copy input or output"
+msgstr ""
+
+#: src/Components/HeaderBar.vala:101
+msgid "Copy Input"
+msgstr ""
+
+#: src/Components/HeaderBar.vala:106
+msgid "Copy Output"
+msgstr ""
+
+#: src/Components/HeaderBar.vala:121
+msgid "Settings"
+msgstr ""
+
+#: src/Components/HeaderBar.vala:124
+msgid "Markdown Cheatsheet"
+msgstr ""
+
+#: src/Views/NoPhpFoundView.vala:8
+msgid "No PHP versions found"
+msgstr ""
+
+#: src/Views/NoPhpFoundView.vala:9
+msgid "Please install a versions of PHP and restart the application."
 msgstr ""
