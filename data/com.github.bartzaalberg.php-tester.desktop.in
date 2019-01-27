@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=PHP Tester
 GenericName=PHP Tester
-Comment=Application to test php code
+Comment=Test some PHP code!
 Categories=Utility;Development;Education;
 Exec=com.github.bartzaalberg.php-tester
 Icon=com.github.bartzaalberg.php-tester
