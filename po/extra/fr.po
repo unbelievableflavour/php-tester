@@ -1,0 +1,72 @@
+# French translation for extra package.
+# Copyright (C) 2019 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.bartzaalberg.alias package.
+# NathanBnm, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-24 19:02+0100\n"
+"PO-Revision-Date: 2019-01-28 21:00+0100\n"
+"Last-Translator: NathanBnm\n"
+"Language-Team: Français\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:6
+#: data/com.github.bartzaalberg.php-tester.desktop.in:3
+msgid "PHP Tester"
+msgstr "PHP Tester"
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:7
+#: data/com.github.bartzaalberg.php-tester.desktop.in:4
+msgid "Test some PHP code!"
+msgstr "Testez du code PHP !"
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:9
+msgid "A simple tool to test your PHP code."
+msgstr "Un simple outil pour tester votre code PHP."
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:10
+msgid "Features:"
+msgstr "Fonctionnalités :"
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:12
+msgid "Code without having to start a whole project!"
+msgstr "Codez sans avoir à démarrer un projet complet !"
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:13
+msgid "Switch PHP versions on the fly!"
+msgstr "Changez de version de PHP à la volée !"
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:14
+msgid "Copy your snippet with a simple click on a button!"
+msgstr "Copiez votre extrait d'un simple clic sur un bouton !"
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:15
+msgid "Continue where you left off last time"
+msgstr "Continuez là où vous vous étiez arrêté la dernière fois"
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:16
+msgid "Run your code with a simple shortcut! (ctrl + r)"
+msgstr "Exécutez votre code avec un simple raccourci ! (Ctrl + R)"
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:16
+msgid "Choose a cool theme to code in"
+msgstr "Choisissez un thème cool pour coder"
+
+#: data/com.github.bartzaalberg.php-tester.appdata.xml.in:30
+msgid "Bart Zaalberg"
+msgstr "Bart Zaalberg"
+
+#: data/com.github.bartzaalberg.php-tester.desktop.in:6
+msgid "com.github.bartzaalberg.php-tester"
+msgstr "com.github.bartzaalberg.php-tester"
+
+#: data/com.github.bartzaalberg.php-tester.desktop.in:11
+msgid "GUI;PHP;Development;"
+msgstr "GUI;PHP;Développement;"
