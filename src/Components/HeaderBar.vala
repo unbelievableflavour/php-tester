@@ -87,7 +87,7 @@ public class HeaderBar : Gtk.HeaderBar {
     }
 
     private void generate_start_button () {
-        start_button.set_tooltip_text (_("Run the code"));
+        start_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>R"}, _("Run the code"));
         start_button.clicked.connect (() => {
             file_manager.run_code ();
         });
@@ -121,7 +121,7 @@ public class HeaderBar : Gtk.HeaderBar {
         menu_button.tooltip_text = (_("Settings"));
         menu_button.set_image (new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
 
-        var cheatsheet = new Gtk.MenuItem.with_label (_("Markdown Cheatsheet"));
+        var cheatsheet = new Gtk.MenuItem.with_label (_("Cheatsheet"));
         cheatsheet.activate.connect (() => {
             new Cheatsheet ();
         });
