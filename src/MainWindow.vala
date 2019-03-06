@@ -33,9 +33,9 @@ public class MainWindow : Gtk.Window {
                     file_manager.run_code ();
                   }
                   break;
-                case Gdk.Key.h:
+                case Gdk.Key.s:
                   if ((e.state & Gdk.ModifierType.CONTROL_MASK) != 0) {
-                    new Cheatsheet ();
+                    new Preferences ();
                   }
                   break;
                 case Gdk.Key.i:
