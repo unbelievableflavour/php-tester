@@ -4,11 +4,15 @@ public class Preferences : Gtk.Dialog {
     private Settings settings = new Settings ("com.github.bartzaalberg.php-tester");
     SourceViewManager source_view_manager = SourceViewManager.get_instance ();
     private Gtk.ComboBoxText style_scheme;
+    private Granite.ModeSwitch dark_mode_switch = new Granite.ModeSwitch.from_icon_name (
+        "display-brightness-symbolic", "weather-clear-night-symbolic"
+    );
 
     public Preferences () {
         title = _("Preferences");
         resizable = false;
         deletable = false;
+        generate_dark_mode_button ();
 
         var general_header = new HeaderLabel (_("Preferences"));
 
@@ -26,7 +30,8 @@ public class Preferences : Gtk.Dialog {
             settings.bind ("font", select_font, "font-name", SettingsBindFlags.DEFAULT);
             settings.bind ("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
-        var theme_label = new Gtk.Label (_("Theme:"));
+        var theme_editor_label = new Gtk.Label (_("Theme (Editor):"));
+        var theme_application_label = new Gtk.Label (_("Theme (Application):"));
 
         var php_path_label = new Gtk.Label (_("PHP path:"));
         var php_path_entry = new Gtk.Entry ();
@@ -65,19 +70,22 @@ public class Preferences : Gtk.Dialog {
         button_box.margin_bottom = 0;
 
         var general_grid = new Gtk.Grid ();
+
         general_grid.row_spacing = 6;
         general_grid.column_spacing = 12;
         general_grid.margin = 12;
         general_grid.attach (general_header, 0, 0, 2, 1);
 
-        general_grid.attach (theme_label, 0, 1, 1, 1);
+        general_grid.attach (theme_editor_label, 0, 1, 1, 1);
         general_grid.attach (style_scheme, 1, 1, 2, 1);
-        general_grid.attach (use_custom_font_label, 0, 2, 1, 1);
-        general_grid.attach (use_custom_font, 1, 2, 1, 1);
-        general_grid.attach (select_font, 2, 2, 1, 1);
-        general_grid.attach (php_path_label, 0, 3, 1, 1);
-        general_grid.attach (php_path_entry, 1, 3, 1, 1);
-        general_grid.attach (restartNoteLabel, 1, 4, 1, 1);
+        general_grid.attach (theme_application_label, 0, 2, 1, 1);
+        general_grid.attach (dark_mode_switch, 1, 2, 2, 1);
+        general_grid.attach (use_custom_font_label, 0, 3, 1, 1);
+        general_grid.attach (use_custom_font, 1, 3, 1, 1);
+        general_grid.attach (select_font, 2, 3, 1, 1);
+        general_grid.attach (php_path_label, 0, 4, 1, 1);
+        general_grid.attach (php_path_entry, 1, 5, 1, 1);
+        general_grid.attach (restartNoteLabel, 1, 6, 1, 1);
 
         var main_grid = new Gtk.Grid ();
         main_grid.attach (general_grid, 0, 0, 1, 1);
@@ -96,6 +104,16 @@ public class Preferences : Gtk.Dialog {
             var scheme = scheme_manager.get_scheme (scheme_id);
             style_scheme.append (scheme.id, scheme.name);
         }
+    }
+
+    private void generate_dark_mode_button () {
+        GLib.Settings settings = new GLib.Settings (Constants.APPLICATION_NAME);
+        var gtk_settings = Gtk.Settings.get_default ();
+        dark_mode_switch.primary_icon_tooltip_text = _("Light mode");
+        dark_mode_switch.secondary_icon_tooltip_text = _("Dark mode");
+        dark_mode_switch.valign = Gtk.Align.CENTER;
+        dark_mode_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
+        settings.bind ("use-dark-theme", dark_mode_switch, "active", GLib.SettingsBindFlags.DEFAULT);
     }
 }
 }

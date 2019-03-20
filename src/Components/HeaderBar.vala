@@ -40,6 +40,7 @@ public class HeaderBar : Gtk.HeaderBar {
         this.pack_start (start_button);
         this.pack_start (copy_menu_button);
         this.pack_end (menu_button);
+
         this.show_close_button = true;
     }
 

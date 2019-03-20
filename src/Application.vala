@@ -26,6 +26,7 @@ public class App:Granite.Application {
         window = new MainWindow (this);
         go_to_last_saved_position (window);
         go_to_last_saved_size (window);
+        use_dark_mode_if_enabled ();
 
         window.show_all ();
 
@@ -62,6 +63,18 @@ public class App:Granite.Application {
         if (php_version_manager.no_versions_found ()) {
             stack_manager.get_stack ().visible_child_name = "no-php-found-view";
         }
+    }
+
+    private void use_dark_mode_if_enabled () {
+       var gtk_settings = Gtk.Settings.get_default ();
+        var dark_mode_switch = new Granite.ModeSwitch.from_icon_name (
+            "display-brightness-symbolic", "weather-clear-night-symbolic"
+        );
+        dark_mode_switch.primary_icon_tooltip_text = _("Light mode");
+        dark_mode_switch.secondary_icon_tooltip_text = _("Dark mode");
+        dark_mode_switch.valign = Gtk.Align.CENTER;
+        dark_mode_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
+        settings.bind ("use-dark-theme", dark_mode_switch, "active", GLib.SettingsBindFlags.DEFAULT);
     }
 }
 }
