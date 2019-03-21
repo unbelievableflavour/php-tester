@@ -1,3 +1,11 @@
+com.github.bartzaalberg.php-tester (1.9.0) STABLE; urgency=low
+
+  * Added dark mode
+  * Added button shortcut labels
+  * Fixed dialog sizes
+
+ -- Bart Zaalberg <bartzaalberg@gmail.com>  Thu, 21 Mar 2019 08:03:00 +0200
+
 com.github.bartzaalberg.php-tester (1.8.2) STABLE; urgency=low
 
   * Added metadata French translation

@@ -50,6 +50,16 @@
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
   <releases>
+    <release version="1.9.0" date="2019-03-21">
+      <description>
+          <p>Dark mode, shortcut button tooltips</p>
+          <ul>
+              <li>Added dark mode</li>
+              <li>Fixed dialog sizes</li>
+              <li>Added shortcut button labels</li>
+          </ul>
+      </description>
+    </release>
     <release version="1.8.2" date="2019-02-02">
       <description>
           <p>Added metadata French translation</p>
