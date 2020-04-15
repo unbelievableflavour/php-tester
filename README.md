@@ -1,3 +1,6 @@
+<a href="https://gitlocalize.com/repo/4342"> <img src="https://gitlocalize.com/repo/4342/whole_project/badge.svg" /> </a>
+<img src="https://travis-ci.org/bartzaalberg/php-tester.svg?branch=master" />
+
 # PHP Tester
 Test your PHP code easily
 
